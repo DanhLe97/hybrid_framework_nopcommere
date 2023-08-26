@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-  <test name="Test">
+  <test name="Run on Firefox">
     <classes>
       <class name="com.nopcommere.user.User_01_Register_Login"/>
     </classes>

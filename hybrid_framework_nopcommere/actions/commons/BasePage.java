@@ -19,6 +19,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.DiscoveryStrategy.Explicit;
 
 public class BasePage {
+	public static BasePage getBasePageObject () {
+		return new BasePage ();
+	}
 	public void openPageUrl (WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
 	}
@@ -95,10 +98,10 @@ public class BasePage {
 				driver.switchTo().window(parentID);
 		}	
 	}
-	public WebElement getWebElement (WebDriver driver, String xpathLocator) {
+	private WebElement getWebElement (WebDriver driver, String xpathLocator) {
 		return driver.findElement(getXpath(xpathLocator));
 	}
-	public List<WebElement> getListWebElements (WebDriver driver, String xpathLocator) {
+	private List<WebElement> getListWebElements (WebDriver driver, String xpathLocator) {
 		return driver.findElements(By.xpath(xpathLocator));
 	}
 	
@@ -182,7 +185,7 @@ public class BasePage {
 	public boolean isElementSelected (WebDriver driver, String xpathLocator) {
 		return getWebElement(driver, xpathLocator).isSelected();
 	}
-	public By getXpath(String xpathLocator) {
+	private By getXpath(String xpathLocator) {
 		return By.xpath(xpathLocator);
 	}
 	public String getElementAttribute (WebDriver driver, String xpathLocator, String attributeName) {
