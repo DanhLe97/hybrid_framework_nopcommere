@@ -6,6 +6,7 @@ import commons.BasePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import pageObject.HomePageObject;
 import pageObject.RegisterPageObject;
+import pageUIs.RegisterPageUI;
 
 import org.testng.annotations.BeforeClass;
 
@@ -28,13 +29,21 @@ public class Level_03_Page_Object extends BasePage {
 	private String emailAddress;
 	private HomePageObject homePage;
 	private RegisterPageObject registerPage;
+	private String firstName;
+	private String lastName;
+	private String password;
 	
 	@BeforeClass
 	public void beforeClass() {
 
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
+		homePage = new HomePageObject(driver);
+		registerPage = new RegisterPageObject(driver);
 //		basePage = BasePage.getBasePageObject();
+		firstName = "w_firstName";
+		lastName = "w_lastName";
+		password = "123456";
 		emailAddress = "afc" + generateFakeNumber() + "@gmail.vn";
 
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -46,7 +55,6 @@ public class Level_03_Page_Object extends BasePage {
 	public void TC_01_Register_Empty_Data() {
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Click to Register button");
 		registerPage.clickToRegisterButton();
@@ -67,19 +75,18 @@ public class Level_03_Page_Object extends BasePage {
 	public void TC_02_Register_Invalid_Email() {
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Input into required fields");
-		registerPage.inputToFirstNameTextBox("w_first name");
-		registerPage.inputToLastNameTextBox("w_last name");
+		registerPage.inputToFirstNameTextBox(firstName);
+		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox("123@@321");
-		registerPage.inputToPasswordTextBox("123456");
-		registerPage.inputToConfirmPasswordTextBox("123456");
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
 		System.out.println("Step 03: Verify email error message");
 		registerPage.clickToRegisterButton();
-		assertEquals(registerPage.getErrorMessageEmailTextBox(),"Wrong email.");
+		assertEquals(registerPage.getErrorMessageEmailTextBox(),"Wrong email");
 
 	}
 
@@ -87,14 +94,13 @@ public class Level_03_Page_Object extends BasePage {
 	public void TC_03_Register_Success() {
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Input into required fields");
-		registerPage.inputToFirstNameTextBox("w_first name");
-		registerPage.inputToLastNameTextBox("w_last name");
+		registerPage.inputToFirstNameTextBox(firstName);
+		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
-		registerPage.inputToPasswordTextBox("123456");
-		registerPage.inputToConfirmPasswordTextBox("123456");
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
 		System.out.println("Step 03: Click on register button");
@@ -102,20 +108,24 @@ public class Level_03_Page_Object extends BasePage {
 
 		System.out.println("Step 04: Verify success message");
 		assertEquals(registerPage.getRegisterSuccessMessage(),"Your registration completed");
+//		System.out.println("Click on the log out button");
+//		registerPage.clickToLogOutButton();
+		
 	}
 
 	@Test
 	public void TC_04_Register_Existing_Email() {
+		waitForElementClickable(driver, RegisterPageUI.LOGOUT_BUTTON);
+		registerPage.clickToElement(driver, RegisterPageUI.LOGOUT_BUTTON);
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Input into required fields");
-		registerPage.inputToFirstNameTextBox("w_first name");
-		registerPage.inputToLastNameTextBox("w_last name");
+		registerPage.inputToFirstNameTextBox(firstName);
+		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
-		registerPage.inputToPasswordTextBox("123456");
-		registerPage.inputToConfirmPasswordTextBox("123456");
+		registerPage.inputToPasswordTextBox(password);
+		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
 		System.out.println("Step 03: Click on register button");
@@ -129,11 +139,10 @@ public class Level_03_Page_Object extends BasePage {
 	public void TC_05_Password_Less_Than_6_Chars() {
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Input into required fields");
-		registerPage.inputToFirstNameTextBox("w_first name");
-		registerPage.inputToLastNameTextBox("w_last name");
+		registerPage.inputToFirstNameTextBox(firstName);
+		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
 		registerPage.inputToPasswordTextBox("123");
 		registerPage.inputToConfirmPasswordTextBox("123");
@@ -143,20 +152,19 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.clickToRegisterButton();
 
 		System.out.println("Step 04: Verify more than 6 characters message");
-		assertEquals(registerPage.getMoreThan6CharactersMessage(),"Password must meet the following rules:\\nmust have at least 6 characters");
+		assertEquals(registerPage.getMoreThan6CharactersMessage(),"Password must meet the following rules:\nmust have at least 6 characters");
 	}
 
 	@Test
 	public void TC_06_Register_Invalid_Confirm_Password() {
 		System.out.println("Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		waitForElementClickable(driver, emailAddress);
 		
 		System.out.println("Step 02: Input into required fields");
-		registerPage.inputToFirstNameTextBox("w_first name");
-		registerPage.inputToLastNameTextBox("w_last name");
+		registerPage.inputToFirstNameTextBox(firstName);
+		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
-		registerPage.inputToPasswordTextBox("123456");
+		registerPage.inputToPasswordTextBox(password);
 		registerPage.inputToConfirmPasswordTextBox("7777777");
 		
 		
