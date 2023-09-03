@@ -38,7 +38,6 @@ public class Level_03_Page_Object extends BasePage {
 
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		homePage = new HomePageObject(driver);
 		registerPage = new RegisterPageObject(driver);
 //		basePage = BasePage.getBasePageObject();
 		firstName = "w_firstName";
@@ -52,14 +51,17 @@ public class Level_03_Page_Object extends BasePage {
 	}
 
 	@Test
-	public void TC_01_Register_Empty_Data() {
-		System.out.println("Step 01: Click to register link");
+	public void Register_01_Register_Empty_Data() {
+
+		System.out.println("Register_01 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
 		
-		System.out.println("Step 02: Click to Register button");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_01 - Step 02: Click to Register button");
 		registerPage.clickToRegisterButton();
 		
-		System.out.println("Step 03: Verify error messages");
+		System.out.println("Register_01 - Step 03: Verify error messages");
 		assertEquals(registerPage.getErrorMessageFirstNameTextBox(),"First name is required.");
 		assertEquals(registerPage.getErrorMessageLastNameTextBox(),"Last name is required.");
 		assertEquals(registerPage.getErrorMessageEmailTextBox(),"Email is required.");
@@ -72,11 +74,11 @@ public class Level_03_Page_Object extends BasePage {
 	}
 
 	@Test
-	public void TC_02_Register_Invalid_Email() {
-		System.out.println("Step 01: Click to register link");
-		homePage.clickToRegisterLink();
-		
-		System.out.println("Step 02: Input into required fields");
+	public void Register_02_Register_Invalid_Email() {
+		System.out.println("Register_02 - Step 01: Click to register link");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_02 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox("123@@321");
@@ -84,18 +86,19 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
-		System.out.println("Step 03: Verify email error message");
+		System.out.println("Register_02 - Step 03: Verify email error message");
 		registerPage.clickToRegisterButton();
 		assertEquals(registerPage.getErrorMessageEmailTextBox(),"Wrong email");
 
 	}
 
 	@Test
-	public void TC_03_Register_Success() {
-		System.out.println("Step 01: Click to register link");
+	public void Register_03_Register_Success() {
+		System.out.println("Register_03 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		
-		System.out.println("Step 02: Input into required fields");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_03 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
@@ -103,10 +106,10 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
-		System.out.println("Step 03: Click on register button");
+		System.out.println("Register_03 - Step 03: Click on register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Step 04: Verify success message");
+		System.out.println("Register_03 - Step 04: Verify success message");
 		assertEquals(registerPage.getRegisterSuccessMessage(),"Your registration completed");
 //		System.out.println("Click on the log out button");
 //		registerPage.clickToLogOutButton();
@@ -114,13 +117,14 @@ public class Level_03_Page_Object extends BasePage {
 	}
 
 	@Test
-	public void TC_04_Register_Existing_Email() {
+	public void Register_04_Register_Existing_Email() {
 		waitForElementClickable(driver, RegisterPageUI.LOGOUT_BUTTON);
 		registerPage.clickToElement(driver, RegisterPageUI.LOGOUT_BUTTON);
-		System.out.println("Step 01: Click to register link");
+		System.out.println("Register_04 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		
-		System.out.println("Step 02: Input into required fields");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_04 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
@@ -128,19 +132,20 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.inputToConfirmPasswordTextBox(password);
 		
 		
-		System.out.println("Step 03: Click on register button");
+		System.out.println("Register_04 - Step 03: Click on register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Step 04: Verify existing error message");
+		System.out.println("Register_04 - Step 04: Verify existing error message");
 		assertEquals(registerPage.getExistingEmailErrorMessage(),"The specified email already exists");
 	}
 
 	@Test
-	public void TC_05_Password_Less_Than_6_Chars() {
-		System.out.println("Step 01: Click to register link");
+	public void Register_05_Password_Less_Than_6_Chars() {
+		System.out.println("Register_05 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		
-		System.out.println("Step 02: Input into required fields");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_05 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
@@ -148,19 +153,20 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.inputToConfirmPasswordTextBox("123");
 		
 		
-		System.out.println("Step 03: Click on register button");
+		System.out.println("Register_05 - Step 03: Click on register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Step 04: Verify more than 6 characters message");
+		System.out.println("Register_05 - Step 04: Verify more than 6 characters message");
 		assertEquals(registerPage.getMoreThan6CharactersMessage(),"Password must meet the following rules:\nmust have at least 6 characters");
 	}
 
 	@Test
-	public void TC_06_Register_Invalid_Confirm_Password() {
-		System.out.println("Step 01: Click to register link");
+	public void Register_06_Register_Invalid_Confirm_Password() {
+		System.out.println("Register_06 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		
-		System.out.println("Step 02: Input into required fields");
+		registerPage = new RegisterPageObject(driver);
+
+		System.out.println("Register_06 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(emailAddress);
@@ -168,10 +174,10 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.inputToConfirmPasswordTextBox("7777777");
 		
 		
-		System.out.println("Step 03: Click on register button");
+		System.out.println("Register_06 - Step 03: Click on register button");
 		registerPage.clickToRegisterButton();
 
-		System.out.println("Step 04: Verify existing error message");
+		System.out.println("Register_06 - Step 04: Verify existing error message");
 		assertEquals(registerPage.getInvalidConfirmPasswordMessage(),"The password and confirmation password do not match.");
 	}
 

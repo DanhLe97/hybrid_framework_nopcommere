@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-  <test name="Run on Firefox">
+
+  <test name="Run on Headless Firefox">
+    <parameter name="browser" value="h_firefox"/>
     <classes>
-      <class name="com.nopcommere.user.User_01_Register_Login"/>
+      <class name="com.nopcommere.user.Level_04_Multi_Browsers"/>
     </classes>
   </test> 
-</suite> 
+
+
+  <test name="Run on Headless Chrome">
+    <parameter name="browser" value="h_chrome"/>
+
+    <classes>
+      <class name="com.nopcommere.user.Level_04_Multi_Browsers"/>
+    </classes>
+  </test> 
+
+
+
+
+</suite>
