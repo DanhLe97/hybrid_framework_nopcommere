@@ -12,11 +12,12 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import pageObject.Nopcommerce.CustomerPageObject;
 import pageObject.Nopcommerce.HomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
 import pageObject.Nopcommerce.RegisterPageObject;
 
-public class Level_04_Multi_Browsers extends BaseTest {
+public class Level_07_Switch_Page extends BaseTest {
 	private WebDriver driver;
 //	BasePage basePage;
 	private String validEmailAddress;
@@ -27,6 +28,7 @@ public class Level_04_Multi_Browsers extends BaseTest {
 	private String password;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
+	private CustomerPageObject customerPage;
 	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
@@ -46,84 +48,46 @@ public class Level_04_Multi_Browsers extends BaseTest {
 
 		
 		
-		System.out.println("Precondition - Step 01: Click to register link");
-		homePage.clickToRegisterLink();
+	}
+
+	@Test
+	public void User_01_Register() {
+
+		registerPage = homePage.clickToRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
-		System.out.println("Precondition - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
 		registerPage.inputToEmailTextBox(validEmailAddress);
 		registerPage.inputToPasswordTextBox(password);
 		registerPage.inputToConfirmPasswordTextBox(password);
-		
-		
-		System.out.println("Precondition - Step 03: Click on register button");
 		registerPage.clickToRegisterButton();
-
-		System.out.println("Precondition - Step 04: Verify success message");
 		assertEquals(registerPage.getRegisterSuccessMessage(),"Your registration completed");
 	
-		System.out.println("Precondition - Step 05: Click on log out button");
-//		registerPage.clickToLogOutButton();
-		homePage = new HomePageObject(driver);
-		System.out.println(validEmailAddress);
+		homePage = registerPage.clickToLogOutButton();
 
 	}
 
 	@Test
-	public void Login_01_Empty_Data() {
-		homePage.clickToLoginLink();
-		
-		loginPage = new LoginPageObject(driver);
-		
-		loginPage.clickToLoginButton();
-		assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
-		
-	}
-
-	@Test
-	public void Login_02_Invalid_Email() {
-		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
-		loginPage.inputIntoEmailTextbox("123@");
+	public void User_02_Login() {
+		loginPage = homePage.clickToLoginLink();
+		loginPage.inputIntoEmailTextbox(validEmailAddress);
 		loginPage.inputIntoPasswordTextbox(password);
-		loginPage.clickToLoginButton(); 
+		homePage= loginPage.clickToLoginButton(); 
 		
 		assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Wrong email");
 	}
 	
 	@Test
-	public void Login_03_Email_Not_Found() {
-		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
-		loginPage.inputIntoEmailTextbox(notFoundEmailAddress);
-		loginPage.inputIntoPasswordTextbox(password);
-		loginPage.clickToLoginButton(); 
+	public void User_03_My_Account() {
+		customerPage = homePage.clickToMyAccountLink();
 		
-		assertEquals(loginPage.getErrorMessageUnsuccessfull(), "Login was unsuccessful. Please correct the errors and try again.\nNo customer account found");
-
-	}
+	} 
 	@Test
-	public void Login_04_Existing_Email_Empty_Password() {
-		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
-		loginPage.inputIntoEmailTextbox(validEmailAddress);
-		loginPage.inputIntoPasswordTextbox("");
-		loginPage.clickToLoginButton();
-		
-		assertEquals(loginPage.getErrorMessageUnsuccessfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
+	public void User_04_Switch_Page() {
 	}
 
 	@Test
-	public void Login_05_Existing_Email_Wrong_Password() {
-		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
-		loginPage.inputIntoEmailTextbox(validEmailAddress);
-		loginPage.inputIntoPasswordTextbox("111111");
-		loginPage.clickToLoginButton();
-		
-	assertEquals(loginPage.getErrorMessageUnsuccessfull(), "Login was unsuccessful. Please correct the errors and try again.\nThe credentials provided are incorrect");
+	public void User_05_Switch_Role() {
 	}
 
 	@Test

@@ -7,20 +7,19 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import commons.BasePage;
+import commons.BaseTest;
 import pageObject.Nopcommerce.HomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
+import pageObject.Nopcommerce.PageGeneratorManager;
 import pageObject.Nopcommerce.RegisterPageObject;
 
-public class Level_03_Page_Object_02_Login extends BasePage {
+public class Level_06_Page_Generator_III extends BaseTest {
 	private WebDriver driver;
 //	BasePage basePage;
-	private String projectPath = System.getProperty("user.dir");
 	private String validEmailAddress;
 	private String notFoundEmailAddress;
 	private HomePageObject homePage;
@@ -29,13 +28,12 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 	private String password;
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	
+	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
-	public void beforeClass() {
-
-		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
-		driver = new FirefoxDriver();
-//		basePage = BasePage.getBasePageObject();
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName);
+		
+		homePage = PageGeneratorManager.getHomePage(driver); 
 		firstName = "w_firstName";
 		lastName = "w_lastName";
 		password = "123456";

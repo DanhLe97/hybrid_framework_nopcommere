@@ -16,7 +16,7 @@ import pageObject.Nopcommerce.HomePageObject;
 import pageObject.Nopcommerce.RegisterPageObject;
 import pageUIs.Nopcommerce.RegisterPageUI;
 
-public class Level_03_Page_Object extends BasePage {
+public class Level_05_Page_Factory extends BasePage {
 	private WebDriver driver;
 //	BasePage basePage;
 	private String projectPath = System.getProperty("user.dir");
