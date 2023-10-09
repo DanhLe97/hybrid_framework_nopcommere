@@ -42,7 +42,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://demo.nopcommerce.com");
-		homePage = new HomePageObject(driver);
+	
 
 		
 
@@ -51,7 +51,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 		System.out.println("Precondition - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = PageGeneratorManager.getRegisterPage(driver);
 		System.out.println("Precondition - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -68,7 +68,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	
 		System.out.println("Precondition - Step 05: Click on log out button");
 //		registerPage.clickToLogOutButton();
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 
 	}
 
@@ -76,7 +76,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	public void Login_01_Empty_Data() {
 		homePage.clickToLoginLink();
 		
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		
 		loginPage.clickToLoginButton();
 		assertEquals(loginPage.getErrorMessageAtEmailTextbox(), "Please enter your email");
@@ -86,7 +86,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	@Test
 	public void Login_02_Invalid_Email() {
 		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputIntoEmailTextbox("123@");
 		loginPage.inputIntoPasswordTextbox(password);
 		loginPage.clickToLoginButton(); 
