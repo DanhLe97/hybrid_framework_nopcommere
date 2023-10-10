@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="param-val-not-found"/>
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.nopcommere.user.Level_04_Multi_Browsers">
+      <class name="liveGuru.LiveGuruTestCase">
         <methods>
-          <include name="Login_01_Empty_Data"/>
-          <include name="Login_02_Invalid_Email"/>
-          <include name="Login_03_Email_Not_Found"/>
-          <include name="Login_04_Existing_Email_Empty_Password"/>
-          <include name="Login_05_Existing_Email_Wrong_Password"/>
-          <include name="Login_06_Existing_Email_Correct_Password"/>
+          <include name="TC_01_Register_Success"/>
           <include name="beforeClass"/>
-          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.nopcommere.user.Level_04_Multi_Browsers -->
+      </class> <!-- liveGuru.LiveGuruTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -97,7 +97,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	@Test
 	public void Login_03_Email_Not_Found() {
 		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputIntoEmailTextbox(notFoundEmailAddress);
 		loginPage.inputIntoPasswordTextbox(password);
 		loginPage.clickToLoginButton(); 
@@ -108,7 +108,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	@Test
 	public void Login_04_Existing_Email_Empty_Password() {
 		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputIntoEmailTextbox(validEmailAddress);
 		loginPage.inputIntoPasswordTextbox("");
 		loginPage.clickToLoginButton();
@@ -119,7 +119,7 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	@Test
 	public void Login_05_Existing_Email_Wrong_Password() {
 		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputIntoEmailTextbox(validEmailAddress);
 		loginPage.inputIntoPasswordTextbox("111111");
 		loginPage.clickToLoginButton();
@@ -130,12 +130,12 @@ public class Level_06_Page_Generator_III extends BaseTest {
 	@Test
 	public void Login_06_Existing_Email_Correct_Password() {
 		loginPage.clickToLoginLink();
-		loginPage = new LoginPageObject(driver);
+		loginPage = PageGeneratorManager.getLoginPage(driver);
 		loginPage.inputIntoEmailTextbox(validEmailAddress);
 		loginPage.inputIntoPasswordTextbox(password);
 		loginPage.clickToLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = PageGeneratorManager.getHomePage(driver);
 		assertTrue(homePage.isMyAccountLinkIsDisplayed());
 		
 	}
