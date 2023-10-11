@@ -1,12 +1,10 @@
 package commons;
 
-import java.awt.Color;
 import java.util.List;
 import java.util.Set;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,12 +14,40 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import net.bytebuddy.agent.builder.AgentBuilder.RedefinitionStrategy.DiscoveryStrategy.Explicit;
+import pageObject.Nopcommerce.AddressPageObject;
+import pageObject.Nopcommerce.CustomerInforPageObject;
+import pageObject.Nopcommerce.MyProductReviewPageObject;
+import pageObject.Nopcommerce.PageGeneratorManager;
+import pageObject.Nopcommerce.RewardPointsPageObject;
+import pageUIs.Nopcommerce.BasePageUI;
 
 public class BasePage {
 	public static BasePage getBasePageObject () {
 		return new BasePage ();
 	}
+	public AddressPageObject openAddressPage (WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LINK_ADDRESS);
+		clickToElement(driver, BasePageUI.LINK_ADDRESS);
+		return PageGeneratorManager.getAddressPage(driver);
+	}
+	public RewardPointsPageObject openRewardPointsPage (WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LINK_REWARDPOINT);
+		clickToElement(driver, BasePageUI.LINK_REWARDPOINT);
+		return PageGeneratorManager.getRewardPointPage(driver);
+	}
+	public MyProductReviewPageObject openMyProductReviewsPage (WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LINK_MYPRODUCTREVIEWS);
+		clickToElement(driver, BasePageUI.LINK_MYPRODUCTREVIEWS);
+		return PageGeneratorManager.getMyProductReviewPage(driver);
+	}
+	public CustomerInforPageObject openCustomerInforPage (WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LINK_CUSTOMERINFOR);
+		clickToElement(driver, BasePageUI.LINK_CUSTOMERINFOR);
+		return PageGeneratorManager.getCustomerInforPage(driver);
+	}
+	
+	
+	
 	public void openPageUrl (WebDriver driver, String pageUrl) {
 		driver.get(pageUrl);
 	}

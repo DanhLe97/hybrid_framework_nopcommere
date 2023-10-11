@@ -11,11 +11,15 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import commons.BasePage;
 import commons.BaseTest;
+import pageObject.Nopcommerce.AddressPageObject;
 import pageObject.Nopcommerce.CustomerPageObject;
 import pageObject.Nopcommerce.HomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
+import pageObject.Nopcommerce.MyProductReviewPageObject;
 import pageObject.Nopcommerce.RegisterPageObject;
+import pageObject.Nopcommerce.RewardPointsPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 	private WebDriver driver;
@@ -29,6 +33,10 @@ public class Level_07_Switch_Page extends BaseTest {
 	private RegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	private CustomerPageObject customerPage;
+	private AddressPageObject addressPage;
+	private RewardPointsPageObject rewardPointPage;
+	private MyProductReviewPageObject myProductReviewPage;
+	
 	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
@@ -84,6 +92,18 @@ public class Level_07_Switch_Page extends BaseTest {
 	} 
 	@Test
 	public void User_04_Switch_Page() {
+		// Customer Infor -> Address
+		addressPage = customerPage.openAddressPage(driver);
+		//Address -> My Product Review
+		myProductReviewPage = addressPage.openMyProductReviewsPage(driver);
+		//My Product Review -> Reward Point
+		rewardPointPage = myProductReviewPage.openRewardPointsPage(driver);
+		//Reward Point -> Address
+		addressPage = rewardPointPage.openAddressPage(driver);
+		//Reward Point -> My Product Review
+		myProductReviewPage = rewardPointPage.openMyProductReviewsPage(driver);
+		//My Product Review -> Address
+		addressPage = myProductReviewPage.openAddressPage(driver);
 	}
 
 	@Test
