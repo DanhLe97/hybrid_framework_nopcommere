@@ -12,17 +12,17 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObject.Nopcommerce.HomePageObject;
-import pageObject.Nopcommerce.RegisterPageObject;
-import pageUIs.Nopcommerce.RegisterPageUI;
+import pageObject.Nopcommerce.UserHomePageObject;
+import pageObject.Nopcommerce.UserRegisterPageObject;
+import pageUIs.NopcommerceUser.RegisterPageUI;
 
 public class Level_03_Page_Object extends BasePage {
 	private WebDriver driver;
 //	BasePage basePage;
 	private String projectPath = System.getProperty("user.dir");
 	private String emailAddress;
-	private HomePageObject homePage;
-	private RegisterPageObject registerPage;
+	private UserHomePageObject homePage;
+	private UserRegisterPageObject registerPage;
 	private String firstName;
 	private String lastName;
 	private String password;
@@ -32,7 +32,7 @@ public class Level_03_Page_Object extends BasePage {
 
 		System.setProperty("webdriver.gecko.driver", projectPath + "\\browserDrivers\\geckodriver.exe");
 		driver = new FirefoxDriver();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 //		basePage = BasePage.getBasePageObject();
 		firstName = "w_firstName";
 		lastName = "w_lastName";
@@ -50,7 +50,7 @@ public class Level_03_Page_Object extends BasePage {
 		System.out.println("Register_01 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_01 - Step 02: Click to Register button");
 		registerPage.clickToRegisterButton();
@@ -70,7 +70,7 @@ public class Level_03_Page_Object extends BasePage {
 	@Test
 	public void Register_02_Register_Invalid_Email() {
 		System.out.println("Register_02 - Step 01: Click to register link");
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_02 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
@@ -90,7 +90,7 @@ public class Level_03_Page_Object extends BasePage {
 	public void Register_03_Register_Success() {
 		System.out.println("Register_03 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_03 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
@@ -116,7 +116,7 @@ public class Level_03_Page_Object extends BasePage {
 		registerPage.clickToElement(driver, RegisterPageUI.LOGOUT_BUTTON);
 		System.out.println("Register_04 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_04 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
@@ -137,7 +137,7 @@ public class Level_03_Page_Object extends BasePage {
 	public void Register_05_Password_Less_Than_6_Chars() {
 		System.out.println("Register_05 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_05 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
@@ -158,7 +158,7 @@ public class Level_03_Page_Object extends BasePage {
 	public void Register_06_Register_Invalid_Confirm_Password() {
 		System.out.println("Register_06 - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 
 		System.out.println("Register_06 - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);

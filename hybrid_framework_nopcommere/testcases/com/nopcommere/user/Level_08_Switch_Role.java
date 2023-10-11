@@ -1,52 +1,50 @@
 package com.nopcommere.user;
 
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObject.Nopcommerce.HomePageObject;
+import commons.GlobalConstants;
+import pageObject.Nopcommerce.PageGeneratorManager;
+import pageObject.NopcommerceAdmin.AdminDashBoardPageObject;
+import pageObject.NopcommerceAdmin.AdminLoginPageObject;
 
 @Test
 public class Level_08_Switch_Role extends BaseTest {
-	WebDriver driver;
-//	BasePage basePage;
-	String projectPath = System.getProperty("user.dir");
-	String emailAddress;
-	private String firstName;
-	private String lastName;
-	private String password;
-	private String validEmailAddress;
-	private String notFoundEmailAddress;
-	private HomePageObject homePage;
 
-	@org.testng.annotations.Parameters("browser")
+	@org.testng.annotations.Parameters("chrome")
 	@BeforeClass
-		public void beforeClass(String browserName) {
-			driver = getBrowserDriver(browserName);
+	public void beforeClass(String browserName) {
+		driver = getBrowserDriver(browserName);
+		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 //			basePage = BasePage.getBasePageObject();
-			firstName = "w_firstName";
-			lastName = "w_lastName";
-			password = "123456";
-			validEmailAddress = "afc" + generateFakeNumber() + "@gmail.vn";
-			notFoundEmailAddress = "afc" + generateFakeNumber() + "@email.com";
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			driver.manage().window().maximize();
-			driver.get("https://demo.nopcommerce.com");
-			homePage = new HomePageObject(driver);
+		firstName = "w_firstName";
+		lastName = "w_lastName";
+		userPassword = "123456";
+		userEmail = "afc" + generateFakeNumber() + "@testing.com";
+		
+		adminEmail = "";
+		adminPassword = "";
+		
+		notFoundEmailAddress = "afc" + generateFakeNumber() + "@email.com";
 
 	}
 
-
-	public void TC_01_Register_Empty_Data() {
+	public void TC_01_Role_User() {
+		userLoginPage = userHomePage.clickToLoginLink();
+		userLoginPage.loginAsUser(userEmail, userPassword);
+		Assert.assertTrue(userHomePage.isMyAccountLinkIsDisplayed());
 	}
 
-	public void TC_02_Register_Invalid_Email() {
-
+	public void TC_02_Admin() {
+		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
+		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
+		adminDashBoardPage = adminLoginPage.login(adminEmail, adminPassword);
 	}
 
 	public void TC_03_Register_Success() {
@@ -76,4 +74,19 @@ public class Level_08_Switch_Role extends BaseTest {
 
 	}
 
+	WebDriver driver;
+//	BasePage basePage;
+	String projectPath = System.getProperty("user.dir");
+	String emailAddress;
+	private String firstName;
+	private String lastName;
+	private String userPassword;
+	private String userEmail;
+	private String adminPassword;
+	private String adminEmail;
+	private String notFoundEmailAddress;
+	private pageObject.Nopcommerce.UserHomePageObject userHomePage;
+	private pageObject.Nopcommerce.LoginPageObject userLoginPage;
+	private AdminDashBoardPageObject adminDashBoardPage;
+	private AdminLoginPageObject adminLoginPage;
 }

@@ -2,27 +2,36 @@ package pageObject.Nopcommerce;
 
 import org.openqa.selenium.WebDriver;
 
+import pageObject.NopcommerceAdmin.AdminDashBoardPageObject;
+import pageObject.NopcommerceAdmin.AdminLoginPageObject;
+
 public class PageGeneratorManager {
 	
-	public static HomePageObject getHomePage (WebDriver driver) {
-		return new HomePageObject(driver);
+	public static UserHomePageObject getUserHomePage (WebDriver driver) {
+		return new UserHomePageObject(driver);
 	}
-	public static LoginPageObject getLoginPage (WebDriver driver) {
+	public static LoginPageObject getUserLoginPage (WebDriver driver) {
 		return new LoginPageObject(driver);
 	}
-	public static RegisterPageObject getRegisterPage (WebDriver driver) {
-		return new RegisterPageObject(driver); 
+	public static UserRegisterPageObject getUserRegisterPage (WebDriver driver) {
+		return new UserRegisterPageObject(driver); 
 	}
-	public static CustomerInforPageObject getCustomerInforPage (WebDriver driver) {
-		return new CustomerInforPageObject(driver);
+	public static UserCustomerInforPageObject getUserCustomerInforPage (WebDriver driver) {
+		return new UserCustomerInforPageObject(driver);
 	}
-	public static MyProductReviewPageObject getMyProductReviewPage (WebDriver driver) {
-		return new MyProductReviewPageObject(driver);
+	public static UserMyProductReviewPageObject getUserProductReviewPage (WebDriver driver) {
+		return new UserMyProductReviewPageObject(driver);
 	}
-	public static RewardPointsPageObject getRewardPointPage (WebDriver driver) {
-		return new RewardPointsPageObject(driver);
+	public static UserRewardPointsPageObject getUserRewardPointPage (WebDriver driver) {
+		return new UserRewardPointsPageObject(driver);
 	}
-	public static AddressPageObject getAddressPage (WebDriver driver) {
-		return new AddressPageObject(driver);
+	public static UserAddressPageObject getUserAddressPage (WebDriver driver) {
+		return new UserAddressPageObject(driver);
+	}
+	public static AdminLoginPageObject getAdminLoginPage (WebDriver driver) {
+		return new AdminLoginPageObject(driver);
+	}
+	public static AdminDashBoardPageObject getAdminHomePage (WebDriver driver) {
+		return new AdminDashBoardPageObject(driver);
 	}
 }

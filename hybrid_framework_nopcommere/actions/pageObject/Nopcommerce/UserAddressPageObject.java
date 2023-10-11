@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
 
-public class AddressPageObject extends BasePage {
+public class UserAddressPageObject extends BasePage {
 private WebDriver driver;
-public AddressPageObject (WebDriver driver) {
+public UserAddressPageObject (WebDriver driver) {
 	this.driver = driver;
 }
 

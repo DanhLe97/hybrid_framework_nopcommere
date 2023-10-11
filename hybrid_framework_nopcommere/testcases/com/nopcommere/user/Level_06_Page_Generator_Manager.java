@@ -12,26 +12,26 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import pageObject.Nopcommerce.HomePageObject;
+import pageObject.Nopcommerce.UserHomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
-import pageObject.Nopcommerce.RegisterPageObject;
+import pageObject.Nopcommerce.UserRegisterPageObject;
 
 public class Level_06_Page_Generator_Manager extends BaseTest {
 	private WebDriver driver;
 //	BasePage basePage;
 	private String validEmailAddress;
 	private String notFoundEmailAddress;
-	private HomePageObject homePage;
+	private UserHomePageObject homePage;
 	private String firstName;
 	private String lastName;
 	private String password;
-	private RegisterPageObject registerPage;
+	private UserRegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
 		driver = getBrowserDriver(browserName);
-		homePage = new HomePageObject(driver); 
+		homePage = new UserHomePageObject(driver); 
 //		basePage = BasePage.getBasePageObject();
 		firstName = "w_firstName";
 		lastName = "w_lastName";

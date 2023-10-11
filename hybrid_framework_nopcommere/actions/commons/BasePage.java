@@ -14,38 +14,37 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import pageObject.Nopcommerce.AddressPageObject;
-import pageObject.Nopcommerce.CustomerInforPageObject;
-import pageObject.Nopcommerce.MyProductReviewPageObject;
 import pageObject.Nopcommerce.PageGeneratorManager;
-import pageObject.Nopcommerce.RewardPointsPageObject;
-import pageUIs.Nopcommerce.BasePageUI;
+import pageObject.Nopcommerce.UserAddressPageObject;
+import pageObject.Nopcommerce.UserCustomerInforPageObject;
+import pageObject.Nopcommerce.UserMyProductReviewPageObject;
+import pageObject.Nopcommerce.UserRewardPointsPageObject;
+import pageUIs.NopcommerceUser.BasePageUI;
 
 public class BasePage {
 	public static BasePage getBasePageObject () {
 		return new BasePage ();
 	}
-	public AddressPageObject openAddressPage (WebDriver driver) {
+	public UserAddressPageObject openAddressPage (WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.LINK_ADDRESS);
 		clickToElement(driver, BasePageUI.LINK_ADDRESS);
-		return PageGeneratorManager.getAddressPage(driver);
+		return PageGeneratorManager.getUserAddressPage(driver);
 	}
-	public RewardPointsPageObject openRewardPointsPage (WebDriver driver) {
+	public UserRewardPointsPageObject openRewardPointsPage (WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.LINK_REWARDPOINT);
 		clickToElement(driver, BasePageUI.LINK_REWARDPOINT);
-		return PageGeneratorManager.getRewardPointPage(driver);
+		return PageGeneratorManager.getUserRewardPointPage(driver);
 	}
-	public MyProductReviewPageObject openMyProductReviewsPage (WebDriver driver) {
+	public UserMyProductReviewPageObject openMyProductReviewsPage (WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.LINK_MYPRODUCTREVIEWS);
 		clickToElement(driver, BasePageUI.LINK_MYPRODUCTREVIEWS);
-		return PageGeneratorManager.getMyProductReviewPage(driver);
+		return PageGeneratorManager.getUserProductReviewPage(driver);
 	}
-	public CustomerInforPageObject openCustomerInforPage (WebDriver driver) {
+	public UserCustomerInforPageObject openCustomerInforPage (WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.LINK_CUSTOMERINFOR);
 		clickToElement(driver, BasePageUI.LINK_CUSTOMERINFOR);
-		return PageGeneratorManager.getCustomerInforPage(driver);
+		return PageGeneratorManager.getUserCustomerInforPage(driver);
 	}
-	
 	
 	
 	public void openPageUrl (WebDriver driver, String pageUrl) {

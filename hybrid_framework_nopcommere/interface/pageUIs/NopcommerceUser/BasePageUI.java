@@ -1,4 +1,4 @@
-package pageUIs.Nopcommerce;
+package pageUIs.NopcommerceUser;
 
 public class BasePageUI {
 public static final String LINK_ADDRESS = "//li[@class='customer-addresses inactive']/a[@href='/customer/addresses']";

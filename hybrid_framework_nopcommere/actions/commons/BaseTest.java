@@ -1,5 +1,7 @@
 package commons;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -45,9 +47,18 @@ public class BaseTest {
 		else if (browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		} else {
+		} 
+		else if(browserName.equals("brave")) {
+			WebDriverManager.chromedriver().driverVersion("117.0.5938.150").setup();
+			ChromeOptions options = new ChromeOptions();
+			options.setBinary("C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe");
+			driver = new ChromeDriver(options);
+		}
+		else {
 			throw new RuntimeException("Browser name invalid");
 		}
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get(GlobalConstants.USER_PAGE_URL);
 		return driver;
  }
 }

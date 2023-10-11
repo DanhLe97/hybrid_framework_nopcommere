@@ -3,29 +3,29 @@ package pageObject.Nopcommerce;
 import org.openqa.selenium.WebDriver;
 
 import commons.BasePage;
-import pageUIs.Nopcommerce.HomePageUI;
+import pageUIs.NopcommerceUser.HomePageUI;
 
-public class HomePageObject extends BasePage{
+public class UserHomePageObject extends BasePage{
 	private WebDriver driver;
 	
-	public HomePageObject(WebDriver driver) {
+	public UserHomePageObject(WebDriver driver) {
 		this.driver = driver;
 	}
-	public RegisterPageObject clickToRegisterLink() {
-		waitForElementClickable(driver, HomePageUI.REGISTER_lINK);
-		clickToElement(driver, HomePageUI.REGISTER_lINK);
-		return PageGeneratorManager.getRegisterPage(driver);
+	public UserRegisterPageObject clickToRegisterLink() {
+		waitForElementClickable(driver, HomePageUI.REGISTER_LINK);
+		clickToElement(driver, HomePageUI.REGISTER_LINK);
+		return PageGeneratorManager.getUserRegisterPage(driver);
 	}
 	public LoginPageObject clickToLoginLink() {
 		waitForElementClickable(driver, HomePageUI.LOGIN_LINK);
 		clickToElement(driver, HomePageUI.LOGIN_LINK);
-		return PageGeneratorManager.getLoginPage(driver);
+		return PageGeneratorManager.getUserLoginPage(driver);
 	}
 	public boolean isMyAccountLinkIsDisplayed() {
 		isElementDisplayed(driver, HomePageUI.MYACCOUNT_LINK);
 		return true;
 	}
-	public CustomerPageObject clickToMyAccountLink() {
+	public UserCustomerPageObject clickToMyAccountLink() {
 		// TODO Auto-generated method stub
 		return null;
 	}

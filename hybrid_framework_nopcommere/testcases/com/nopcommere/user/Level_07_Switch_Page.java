@@ -13,29 +13,30 @@ import org.testng.annotations.Test;
 
 import commons.BasePage;
 import commons.BaseTest;
-import pageObject.Nopcommerce.AddressPageObject;
-import pageObject.Nopcommerce.CustomerPageObject;
-import pageObject.Nopcommerce.HomePageObject;
+import pageObject.Nopcommerce.UserAddressPageObject;
+import pageObject.Nopcommerce.UserCustomerPageObject;
+import pageObject.Nopcommerce.UserHomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
-import pageObject.Nopcommerce.MyProductReviewPageObject;
-import pageObject.Nopcommerce.RegisterPageObject;
-import pageObject.Nopcommerce.RewardPointsPageObject;
+import pageObject.Nopcommerce.UserAddressPageObject;
+import pageObject.Nopcommerce.UserMyProductReviewPageObject;
+import pageObject.Nopcommerce.UserRegisterPageObject;
+import pageObject.Nopcommerce.UserRewardPointsPageObject;
 
 public class Level_07_Switch_Page extends BaseTest {
 	private WebDriver driver;
 //	BasePage basePage;
 	private String validEmailAddress;
 	private String notFoundEmailAddress;
-	private HomePageObject homePage;
+	private UserHomePageObject homePage;
 	private String firstName;
 	private String lastName;
 	private String password;
-	private RegisterPageObject registerPage;
+	private UserRegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private CustomerPageObject customerPage;
-	private AddressPageObject addressPage;
-	private RewardPointsPageObject rewardPointPage;
-	private MyProductReviewPageObject myProductReviewPage;
+	private UserCustomerPageObject customerPage;
+	private UserAddressPageObject addressPage;
+	private UserRewardPointsPageObject rewardPointPage;
+	private UserMyProductReviewPageObject myProductReviewPage;
 	
 	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
@@ -50,7 +51,7 @@ public class Level_07_Switch_Page extends BaseTest {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://demo.nopcommerce.com");
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		
 
@@ -118,7 +119,7 @@ public class Level_07_Switch_Page extends BaseTest {
 		loginPage.inputIntoPasswordTextbox(password);
 		loginPage.clickToLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 		assertTrue(homePage.isMyAccountLinkIsDisplayed());
 		
 	}

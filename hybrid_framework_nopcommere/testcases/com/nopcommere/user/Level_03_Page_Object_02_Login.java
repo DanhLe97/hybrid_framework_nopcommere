@@ -13,9 +13,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BasePage;
-import pageObject.Nopcommerce.HomePageObject;
+import pageObject.Nopcommerce.UserHomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
-import pageObject.Nopcommerce.RegisterPageObject;
+import pageObject.Nopcommerce.UserRegisterPageObject;
 
 public class Level_03_Page_Object_02_Login extends BasePage {
 	private WebDriver driver;
@@ -23,11 +23,11 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 	private String projectPath = System.getProperty("user.dir");
 	private String validEmailAddress;
 	private String notFoundEmailAddress;
-	private HomePageObject homePage;
+	private UserHomePageObject homePage;
 	private String firstName;
 	private String lastName;
 	private String password;
-	private RegisterPageObject registerPage;
+	private UserRegisterPageObject registerPage;
 	private LoginPageObject loginPage;
 	
 	@BeforeClass
@@ -44,7 +44,7 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get("https://demo.nopcommerce.com");
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 		
 
@@ -53,7 +53,7 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 		System.out.println("Precondition - Step 01: Click to register link");
 		homePage.clickToRegisterLink();
 		
-		registerPage = new RegisterPageObject(driver);
+		registerPage = new UserRegisterPageObject(driver);
 		System.out.println("Precondition - Step 02: Input into required fields");
 		registerPage.inputToFirstNameTextBox(firstName);
 		registerPage.inputToLastNameTextBox(lastName);
@@ -70,7 +70,7 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 	
 		System.out.println("Precondition - Step 05: Click on log out button");
 //		registerPage.clickToLogOutButton();
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 
 	}
 
@@ -137,7 +137,7 @@ public class Level_03_Page_Object_02_Login extends BasePage {
 		loginPage.inputIntoPasswordTextbox(password);
 		loginPage.clickToLoginButton();
 		
-		homePage = new HomePageObject(driver);
+		homePage = new UserHomePageObject(driver);
 		assertTrue(homePage.isMyAccountLinkIsDisplayed());
 		
 	}
