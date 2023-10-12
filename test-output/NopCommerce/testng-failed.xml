@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [NopCommerce]">
+<suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Run on Firefox(failed)">
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nopcommere.user.Level_04_Multi_Browsers">
+      <class name="com.nopcommere.user.Level_08_Switch_Role">
         <methods>
-          <include name="Login_01_Empty_Data"/>
-          <include name="Login_02_Invalid_Email"/>
-          <include name="Login_03_Email_Not_Found"/>
-          <include name="Login_04_Existing_Email_Empty_Password"/>
-          <include name="Login_05_Existing_Email_Wrong_Password"/>
-          <include name="Login_06_Existing_Email_Correct_Password"/>
-          <include name="beforeClass"/>
+          <include name="TC_02_Admin_To_User"/>
           <include name="afterClass"/>
+          <include name="TC_01_User_To_Admin"/>
+          <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.nopcommere.user.Level_04_Multi_Browsers -->
+      </class> <!-- com.nopcommere.user.Level_08_Switch_Role -->
     </classes>
   </test> <!-- Run on Firefox(failed) -->
 </suite> <!-- Failed suite [NopCommerce] -->

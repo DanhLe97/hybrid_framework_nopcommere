@@ -3,9 +3,9 @@
 <suite name="NopCommerce">
 
   <test name="Run on Firefox">
-    <parameter name="browser" value="firefox"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.nopcommere.user.Level_04_Multi_Browsers"/>
+      <class name="com.nopcommere.user.Level_08_Switch_Role"/>
     </classes>
   </test> 
 </suite>

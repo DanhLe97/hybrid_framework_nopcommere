@@ -29,5 +29,9 @@ public class UserHomePageObject extends BasePage{
 		// TODO Auto-generated method stub
 		return null;
 	}
+//	public void logout() {
+//		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
+//		clickToElement(driver, HomePageUI.LOGOUT_LINK);
+//	}
 
 }

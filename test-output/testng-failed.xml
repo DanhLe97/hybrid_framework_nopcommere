@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <parameter name="browser" value="param-val-not-found"/>
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Run on Firefox(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="liveGuru.LiveGuruTestCase">
+      <class name="com.nopcommere.user.Level_08_Switch_Role">
         <methods>
-          <include name="TC_01_Register_Success"/>
+          <include name="TC_02_Admin_To_User"/>
+          <include name="afterClass"/>
+          <include name="TC_01_User_To_Admin"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- liveGuru.LiveGuruTestCase -->
+      </class> <!-- com.nopcommere.user.Level_08_Switch_Role -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Run on Firefox(failed) -->
+</suite> <!-- Failed suite [NopCommerce] -->

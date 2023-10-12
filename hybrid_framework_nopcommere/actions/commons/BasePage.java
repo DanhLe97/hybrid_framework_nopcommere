@@ -17,8 +17,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.Nopcommerce.PageGeneratorManager;
 import pageObject.Nopcommerce.UserAddressPageObject;
 import pageObject.Nopcommerce.UserCustomerInforPageObject;
+import pageObject.Nopcommerce.UserHomePageObject;
 import pageObject.Nopcommerce.UserMyProductReviewPageObject;
 import pageObject.Nopcommerce.UserRewardPointsPageObject;
+import pageObject.NopcommerceAdmin.AdminLoginPageObject;
 import pageUIs.NopcommerceUser.BasePageUI;
 
 public class BasePage {
@@ -44,6 +46,47 @@ public class BasePage {
 		waitForElementClickable(driver, BasePageUI.LINK_CUSTOMERINFOR);
 		clickToElement(driver, BasePageUI.LINK_CUSTOMERINFOR);
 		return PageGeneratorManager.getUserCustomerInforPage(driver);
+	}
+	public AdminLoginPageObject logoutAdminPage (WebDriver driver) {
+		waitForElementClickable(driver, pageUIs.NopcommerceAdmin.BasePageUI.LOGOUT_LINK);
+		clickToElement(driver, pageUIs.NopcommerceAdmin.BasePageUI.LOGOUT_LINK);
+		return PageGeneratorManager.getAdminLoginPage(driver);
+	}
+	public UserHomePageObject logoutUserPage (WebDriver driver) {
+		waitForElementClickable(driver, BasePageUI.LOGOUT_LINK);
+		clickToElement(driver, BasePageUI.LOGOUT_LINK);
+		return PageGeneratorManager.getUserHomePage(driver);
+	}
+	private By getByXpath (String xpathLocator) {
+		return By.xpath(xpathLocator);
+	}
+	
+	//locatorType: id=/ css=/ xpath=/ name=/ class=
+	private By getByLocator (String locatorType) {
+		By by = null;
+		if (locatorType.startsWith("id=")||locatorType.startsWith("ID")||locatorType.startsWith("Id=")) {
+			locatorType = locatorType.substring(3);
+			by = By.id(locatorType.substring(3));
+		} else if(locatorType.startsWith("css=")||locatorType.startsWith("CSS=")||locatorType.startsWith("Css=")) {
+			locatorType = locatorType.substring(4);
+			by = By.cssSelector(locatorType.substring(4));	
+		}
+		else if(locatorType.startsWith("xpath=")||locatorType.startsWith("XPATH=")||locatorType.startsWith("Xpath=")) {
+			locatorType = locatorType.substring(6);
+			by = By.xpath(locatorType.substring(6));	
+		}
+		else if(locatorType.startsWith("name=")||locatorType.startsWith("NAME=")||locatorType.startsWith("Name=")) {
+			locatorType = locatorType.substring(5);
+			by = By.name(locatorType.substring(5));	
+		}
+		else if(locatorType.startsWith("class=")||locatorType.startsWith("CLASS=")||locatorType.startsWith("Class=")) {
+			locatorType = locatorType.substring(6);
+			by = By.className(locatorType.substring(6));	
+		} else {
+			throw new RuntimeException("Locator type is not supported!");
+		}
+		
+		return by;
 	}
 	
 	

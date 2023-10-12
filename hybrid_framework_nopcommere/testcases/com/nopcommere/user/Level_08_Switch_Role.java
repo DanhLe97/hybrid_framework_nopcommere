@@ -1,5 +1,7 @@
 package com.nopcommere.user;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
@@ -17,35 +19,54 @@ import pageObject.NopcommerceAdmin.AdminLoginPageObject;
 @Test
 public class Level_08_Switch_Role extends BaseTest {
 
-	@org.testng.annotations.Parameters("chrome")
+	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
 	public void beforeClass(String browserName) {
-		driver = getBrowserDriver(browserName);
+		driver = getBrowserDriver("chrome");
 		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 //			basePage = BasePage.getBasePageObject();
 		firstName = "w_firstName";
 		lastName = "w_lastName";
 		userPassword = "123456";
-		userEmail = "afc" + generateFakeNumber() + "@testing.com";
+		userEmail = "w_test1@testing.com";
 		
-		adminEmail = "";
-		adminPassword = "";
+		adminEmail = "admin@yourstore.com";
+		adminPassword = "admin";
 		
 		notFoundEmailAddress = "afc" + generateFakeNumber() + "@email.com";
 
 	}
 
-	public void TC_01_Role_User() {
+	public void TC_01_User_To_Admin() {
 		userLoginPage = userHomePage.clickToLoginLink();
 		userLoginPage.loginAsUser(userEmail, userPassword);
 		Assert.assertTrue(userHomePage.isMyAccountLinkIsDisplayed());
-	}
-
-	public void TC_02_Admin() {
+		userHomePage.logoutUserPage(driver);
+		
 		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
 		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
 		adminDashBoardPage = adminLoginPage.login(adminEmail, adminPassword);
+		assertTrue(adminDashBoardPage.isDashBoardPageDisplayed());
+		adminDashBoardPage.logoutAdminPage(driver);
+		
 	}
+
+	public void TC_02_Admin_To_User() {
+		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
+		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
+		adminDashBoardPage = adminLoginPage.login(adminEmail, adminPassword);
+		assertTrue(adminDashBoardPage.isDashBoardPageDisplayed());
+		adminDashBoardPage.logoutAdminPage(driver);
+		
+		userHomePage.openPageUrl(driver, GlobalConstants.USER_PAGE_URL);
+		userLoginPage = userHomePage.clickToLoginLink();
+		userLoginPage.loginAsUser(userEmail, userPassword);
+		Assert.assertTrue(userHomePage.isMyAccountLinkIsDisplayed());
+		userHomePage.logoutUserPage(driver);
+		
+		
+		}
+	
 
 	public void TC_03_Register_Success() {
 
