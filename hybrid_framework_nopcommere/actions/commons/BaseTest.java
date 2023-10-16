@@ -43,6 +43,12 @@ public class BaseTest {
 			options.addArguments("window-size=1920-1080");
 			driver = new ChromeDriver(options);
 			
+			
+			if (GlobalConstants.OS_NAME.startsWith("Window")) {
+				options.setBinary("");
+			}else {
+				
+			}
 		}
 		else if (browserName.equals("edge")) {
 			WebDriverManager.edgedriver().setup();
@@ -57,7 +63,7 @@ public class BaseTest {
 		else {
 			throw new RuntimeException("Browser name invalid");
 		}
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.get(GlobalConstants.USER_PAGE_URL);
 		return driver;
