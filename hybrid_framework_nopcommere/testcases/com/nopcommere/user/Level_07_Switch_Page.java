@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import commons.BasePage;
 import commons.BaseTest;
 import pageObject.Nopcommerce.UserAddressPageObject;
+import pageObject.Nopcommerce.UserCustomerInforPageObject;
 import pageObject.Nopcommerce.UserCustomerPageObject;
 import pageObject.Nopcommerce.UserHomePageObject;
 import pageObject.Nopcommerce.LoginPageObject;
@@ -33,7 +34,7 @@ public class Level_07_Switch_Page extends BaseTest {
 	private String password;
 	private UserRegisterPageObject registerPage;
 	private LoginPageObject loginPage;
-	private UserCustomerPageObject customerPage;
+	private UserCustomerInforPageObject customerPage;
 	private UserAddressPageObject addressPage;
 	private UserRewardPointsPageObject rewardPointPage;
 	private UserMyProductReviewPageObject myProductReviewPage;

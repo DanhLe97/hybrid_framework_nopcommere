@@ -2,7 +2,9 @@ package pageObject.Nopcommerce;
 
 import org.openqa.selenium.WebDriver;
 
-public class UserCustomerInforPageObject {
+import commons.BasePage;
+
+public class UserCustomerInforPageObject extends BasePage {
 private WebDriver driver;
 public UserCustomerInforPageObject (WebDriver driver) {
 	this.driver = driver;

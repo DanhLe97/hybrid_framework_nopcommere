@@ -25,9 +25,10 @@ public class UserHomePageObject extends BasePage{
 		isElementDisplayed(driver, HomePageUI.MYACCOUNT_LINK);
 		return true;
 	}
-	public UserCustomerPageObject clickToMyAccountLink() {
-		// TODO Auto-generated method stub
-		return null;
+	public UserCustomerInforPageObject clickToMyAccountLink() {
+		waitForElementClickable(driver, HomePageUI.MYACCOUNT_LINK);
+		clickToElement(driver,  HomePageUI.MYACCOUNT_LINK);
+		return PageGeneratorManager.getUserCustomerInforPage(driver);
 	}
 //	public void logout() {
 //		waitForElementVisible(driver, HomePageUI.LOGOUT_LINK);
