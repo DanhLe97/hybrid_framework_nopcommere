@@ -15,7 +15,7 @@ public class BaseTest {
 	private WebDriver driver;
 	private String projectPath = System.getProperty("user.dir");
 
- protected WebDriver getBrowserDriver (String browserName) {
+ protected WebDriver getBrowserDriver (String browserName, String appUrl) {
 		System.out.println("Run on: "+browserName);
 		if(browserName.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -65,7 +65,7 @@ public class BaseTest {
 		}
 		driver.manage().timeouts().implicitlyWait(GlobalConstants.LONG_TIME_OUT, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-		driver.get(GlobalConstants.USER_PAGE_URL);
+		driver.get(appUrl);
 		return driver;
  }
 }

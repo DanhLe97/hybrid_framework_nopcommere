@@ -2,47 +2,52 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-16T10:03:17Z" name="Default suite" finished-at="2023-10-16T10:03:31Z" duration-ms="13907">
+  <suite started-at="2023-10-17T11:08:47Z" name="NopCommerce" finished-at="2023-10-17T11:09:13Z" duration-ms="25509">
     <groups>
     </groups>
-    <test started-at="2023-10-16T10:03:17Z" name="Default test" finished-at="2023-10-16T10:03:31Z" duration-ms="13907">
-      <class name="com.nopcommere.user.Level_09_Dynamic_Locator">
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:17Z" name="beforeClass" finished-at="2023-10-16T10:03:24Z" duration-ms="7085" status="PASS">
+    <test started-at="2023-10-17T11:08:47Z" name="Run on Firefox" finished-at="2023-10-17T11:09:13Z" duration-ms="25509">
+      <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
+        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:08:47Z" name="beforeClass" finished-at="2023-10-17T11:09:00Z" duration-ms="12789" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[param-val-not-found]]>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="TC_02_Admin_To_User()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:24Z" name="TC_02_Admin_To_User" finished-at="2023-10-16T10:03:27Z" duration-ms="2585" status="PASS">
+        <test-method signature="Table_01()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:00Z" name="Table_01" finished-at="2023-10-17T11:09:04Z" duration-ms="4085" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_02_Admin_To_User -->
-        <test-method signature="TC_03_Dynamic_locator()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:27Z" name="TC_03_Dynamic_locator" finished-at="2023-10-16T10:03:31Z" duration-ms="3887" status="PASS">
+        </test-method> <!-- Table_01 -->
+        <test-method signature="Table_02()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:04Z" name="Table_02" finished-at="2023-10-17T11:09:04Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_03_Dynamic_locator -->
-        <test-method signature="TC_04_Register_Existing_Email()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:31Z" name="TC_04_Register_Existing_Email" finished-at="2023-10-16T10:03:31Z" duration-ms="1" status="PASS">
+        </test-method> <!-- Table_02 -->
+        <test-method signature="Table_03()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:04Z" name="Table_03" finished-at="2023-10-17T11:09:04Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_04_Register_Existing_Email -->
-        <test-method signature="TC_05_Password_Less_Than_6_Chars()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:31Z" name="TC_05_Password_Less_Than_6_Chars" finished-at="2023-10-16T10:03:31Z" duration-ms="1" status="PASS">
+        </test-method> <!-- Table_03 -->
+        <test-method signature="Table_04()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:04Z" name="Table_04" finished-at="2023-10-17T11:09:04Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_05_Password_Less_Than_6_Chars -->
-        <test-method signature="TC_06_Register_Invalid_Confirm_Password()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:31Z" name="TC_06_Register_Invalid_Confirm_Password" finished-at="2023-10-16T10:03:31Z" duration-ms="1" status="PASS">
+        </test-method> <!-- Table_04 -->
+        <test-method signature="Table_05()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:04Z" name="Table_05" finished-at="2023-10-17T11:09:04Z" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- TC_06_Register_Invalid_Confirm_Password -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.nopcommere.user.Level_09_Dynamic_Locator@4ff8d125]" started-at="2023-10-16T10:03:31Z" name="afterClass" finished-at="2023-10-16T10:03:31Z" duration-ms="322" status="PASS">
+        </test-method> <!-- Table_05 -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-17T11:09:04Z" name="afterClass" finished-at="2023-10-17T11:09:13Z" duration-ms="8617" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->
-      </class> <!-- com.nopcommere.user.Level_09_Dynamic_Locator -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.jquery.datatable.Level_10_DataTable_DataGrid -->
+    </test> <!-- Run on Firefox -->
+  </suite> <!-- NopCommerce -->
 </testng-results>
