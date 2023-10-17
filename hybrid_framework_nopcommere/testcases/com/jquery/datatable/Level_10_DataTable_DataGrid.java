@@ -1,5 +1,7 @@
 package com.jquery.datatable;
 
+import static org.testng.Assert.assertTrue;
+
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
@@ -36,14 +38,30 @@ HomePageObject homePage;
 
 	public void Table_01() {
 		homePage.openPagingByPageNumber("2");
+		assertTrue(homePage.isPaginationSelected("2"));
 		homePage.openPagingByPageNumber("4");
+		assertTrue(homePage.isPaginationSelected("4"));
 		homePage.openPagingByPageNumber("5");
+		assertTrue(homePage.isPaginationSelected("5"));
 		homePage.openPagingByPageNumber("7");
+		assertTrue(homePage.isPaginationSelected("7"));
+		homePage.refreshCurrentPage(driver);
 		
 		}
 	
 
-	public void Table_02() {
+	public void Table_02_Enter_To_Header() {
+		homePage.enterToHeaderTextboxByLabel("Females","777");
+		homePage.refreshCurrentPage(driver);
+
+		homePage.enterToHeaderTextboxByLabel("Country","Angola");
+		homePage.refreshCurrentPage(driver);
+
+		homePage.enterToHeaderTextboxByLabel("Males","25266");
+		homePage.refreshCurrentPage(driver);
+
+		homePage.enterToHeaderTextboxByLabel("Total","1580");
+		homePage.refreshCurrentPage(driver);
 
 	}
 
