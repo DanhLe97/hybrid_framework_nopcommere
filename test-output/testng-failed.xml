@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <parameter name="browser" value="param-val-not-found"/>
+  <parameter name="url" value="param-val-not-found"/>
   <test thread-count="5" name="Default test(failed)">
     <classes>
       <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
         <methods>
-          <include name="Table_02"/>
           <include name="Table_01"/>
           <include name="Table_05"/>
+          <include name="Table_02_Enter_To_Header"/>
           <include name="Table_04"/>
           <include name="Table_03"/>
           <include name="afterClass"/>

@@ -1,7 +1,13 @@
 package pageObject.JQuery;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import commons.BasePage;
 import pageUIs.JQuery.HomePageUI;
@@ -30,5 +36,28 @@ public class HomePageObject extends BasePage {
 		isElementDisplayed(driver, HomePageUI.DISPLAYED_PAGE_BY_NUMBER, pageNumber);
 		return isElementDisplayed(driver, HomePageUI.DISPLAYED_PAGE_BY_NUMBER, pageNumber);
 
+	}
+
+	public List getValueEachRowAtAllPage() {
+		int totalPage = getElementSize(driver, HomePageUI.TOTAL_PAGINATION);
+		System.out.println("Total size: " + totalPage);
+		List<String> allRowValueAllPage = new ArrayList<String>();
+		Set<String> allRowValueUniqueAllPage = new HashSet<>();
+		// Duyệt qua tất cả các page number (paging)
+		for (int index = 1; index <= totalPage; index++) {
+			clickToElement(driver, HomePageUI.PAGINATION_BY_INDEX, String.valueOf(index));
+
+			//Get text của all row each page đưa vào array list
+			List<WebElement> allRowElementEachPage = getListWebElements(driver, HomePageUI.ALL_ROW_COUNTRY_EACH_PAGE);
+			for (WebElement eachRow : allRowElementEachPage) {
+				allRowValueAllPage.add(eachRow.getText());
+			}
+		}
+			for (String value : allRowValueAllPage) {
+//				System.out.println("----------------------------------");
+				System.out.println(value);
+			}
+		
+	return allRowValueAllPage;
 	}
 }

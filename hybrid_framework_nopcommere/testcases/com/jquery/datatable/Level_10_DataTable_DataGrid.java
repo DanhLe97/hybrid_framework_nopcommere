@@ -1,30 +1,24 @@
 package com.jquery.datatable;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
-import commons.GlobalConstants;
 import pageObject.JQuery.HomePageObject;
-import pageObject.Nopcommerce.PageGeneratorManager;
-import pageObject.Nopcommerce.UserAddressPageObject;
-import pageObject.Nopcommerce.UserCustomerInforPageObject;
-import pageObject.Nopcommerce.UserMyProductReviewPageObject;
-import pageObject.Nopcommerce.UserRewardPointsPageObject;
-import pageObject.NopcommerceAdmin.AddressPageObject;
-import pageObject.NopcommerceAdmin.AdminDashBoardPageObject;
-import pageObject.NopcommerceAdmin.AdminLoginPageObject;
-
 @Test
 public class Level_10_DataTable_DataGrid extends BaseTest {
 HomePageObject homePage;
+List<String> actualAllCountryValues;
+List<String> expectedAllCountryValues;
+
 	@org.testng.annotations.Parameters({"browser","url"})
 	@BeforeClass
 	public void beforeClass(String browserName, String appUrl) {
@@ -66,7 +60,12 @@ HomePageObject homePage;
 	}
 
 	public void Table_03() {
-
+		//Đọc dữ liệu của file country.txt ra
+		// Lưu vào 1 List<String> = Expected value = expectedAllCountryValues
+		
+		//Actual value
+		actualAllCountryValues = homePage.getValueEachRowAtAllPage();
+		assertEquals(actualAllCountryValues, expectedAllCountryValues);
 	}
 
 	public void Table_04() {
