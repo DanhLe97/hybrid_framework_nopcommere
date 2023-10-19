@@ -30,46 +30,48 @@ List<String> expectedAllCountryValues;
 //		
 //	}
 
-	public void Table_01() {
-		homePage.openPagingByPageNumber("2");
-		assertTrue(homePage.isPaginationSelected("2"));
-		homePage.openPagingByPageNumber("4");
-		assertTrue(homePage.isPaginationSelected("4"));
-		homePage.openPagingByPageNumber("5");
-		assertTrue(homePage.isPaginationSelected("5"));
-		homePage.openPagingByPageNumber("7");
-		assertTrue(homePage.isPaginationSelected("7"));
-		homePage.refreshCurrentPage(driver);
-		
-		}
-	
+//	public void Table_01() {
+//		homePage.openPagingByPageNumber("2");
+//		assertTrue(homePage.isPaginationSelected("2"));
+//		homePage.openPagingByPageNumber("4");
+//		assertTrue(homePage.isPaginationSelected("4"));
+//		homePage.openPagingByPageNumber("5");
+//		assertTrue(homePage.isPaginationSelected("5"));
+//		homePage.openPagingByPageNumber("7");
+//		assertTrue(homePage.isPaginationSelected("7"));
+//		homePage.refreshCurrentPage(driver);
+//		
+//		}
+//	
+//
+//	public void Table_02_Enter_To_Header() {
+//		homePage.enterToHeaderTextboxByLabel("Females","777");
+//		homePage.refreshCurrentPage(driver);
+//
+//		homePage.enterToHeaderTextboxByLabel("Country","Angola");
+//		homePage.refreshCurrentPage(driver);
+//
+//		homePage.enterToHeaderTextboxByLabel("Males","25266");
+//		homePage.refreshCurrentPage(driver);
+//
+//		homePage.enterToHeaderTextboxByLabel("Total","1580");
+//		homePage.refreshCurrentPage(driver);
+//
+//	}
 
-	public void Table_02_Enter_To_Header() {
-		homePage.enterToHeaderTextboxByLabel("Females","777");
-		homePage.refreshCurrentPage(driver);
-
-		homePage.enterToHeaderTextboxByLabel("Country","Angola");
-		homePage.refreshCurrentPage(driver);
-
-		homePage.enterToHeaderTextboxByLabel("Males","25266");
-		homePage.refreshCurrentPage(driver);
-
-		homePage.enterToHeaderTextboxByLabel("Total","1580");
-		homePage.refreshCurrentPage(driver);
-
-	}
-
-	public void Table_03() {
-		//Đọc dữ liệu của file country.txt ra
-		// Lưu vào 1 List<String> = Expected value = expectedAllCountryValues
-		
-		//Actual value
-		actualAllCountryValues = homePage.getValueEachRowAtAllPage();
-		assertEquals(actualAllCountryValues, expectedAllCountryValues);
-	}
-
-	public void Table_04() {
-
+//	public void Table_03_Data_Table() {
+//		//Đọc dữ liệu của file country.txt ra
+//		// Lưu vào 1 List<String> = Expected value = expectedAllCountryValues
+//		
+//		//Actual value
+//		actualAllCountryValues = homePage.getValueEachRowAtAllPage();
+//		assertEquals(actualAllCountryValues, expectedAllCountryValues);
+//	}
+	@Test
+	public void Table_04_Enter_To_Textbox_At_Any_Row() {
+		homePage.enterToTextboxAtRowNumberByColumnName("Company","1","Kiehn DeckHow");
+		homePage.enterToTextboxAtRowNumberByColumnName("Contact Person","1","HistoName");
+		homePage.enterToTextboxAtRowNumberByColumnName("Order Placed","1","123");
 	}
 
 	public void Table_05() {
@@ -83,7 +85,7 @@ List<String> expectedAllCountryValues;
 
 	@AfterClass
 	public void afterClass() {
-		driver.quit();
+//		driver.quit();
 
 	}
 

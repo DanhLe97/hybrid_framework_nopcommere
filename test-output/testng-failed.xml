@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <parameter name="browser" value="param-val-not-found"/>
-  <parameter name="url" value="param-val-not-found"/>
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
+  <parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>
+  <test thread-count="5" name="Run on Firefox(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
       <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
         <methods>
-          <include name="Table_01"/>
-          <include name="Table_05"/>
-          <include name="Table_02_Enter_To_Header"/>
-          <include name="Table_04"/>
-          <include name="Table_03"/>
+          <include name="Table_04_Enter_To_Textbox_At_Any_Row"/>
           <include name="afterClass"/>
           <include name="beforeClass"/>
         </methods>
       </class> <!-- com.jquery.datatable.Level_10_DataTable_DataGrid -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Run on Firefox(failed) -->
+</suite> <!-- Failed suite [NopCommerce] -->

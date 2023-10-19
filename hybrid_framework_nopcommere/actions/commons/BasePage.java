@@ -201,13 +201,14 @@ public class BasePage {
 	}
 
 	public List<WebElement> getListWebElements(WebDriver driver, String locatorType) {
-		return driver.findElements(By.xpath(locatorType));
+		return driver.findElements(getByLocator(locatorType));
 	}
 
 	private String getDynamicXpath(String locatorType, String... dynamicValues) {
 		if (locatorType.startsWith("xpath=") || locatorType.startsWith("Xpath=") || locatorType.startsWith("XPATH=")) {
 			locatorType = String.format(locatorType, (Object[]) dynamicValues);
 		}
+		System.err.println(locatorType);
 		return locatorType;
 	}
 
