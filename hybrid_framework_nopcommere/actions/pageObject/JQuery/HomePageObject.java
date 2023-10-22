@@ -89,6 +89,10 @@ public class HomePageObject extends BasePage {
 		// TODO Auto-generated method stub
 		
 	}
+	public void checkToCheckboxByColumnNameAtRowNumber(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
 
 //	public void enterToTextboxAtRowNumberByColumnName(String columnName, String rowNumber, String value) {
 //		// get column index dựa vào tên cột
