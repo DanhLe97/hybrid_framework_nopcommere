@@ -201,13 +201,14 @@ public class BasePage {
 	}
 
 	public List<WebElement> getListWebElements(WebDriver driver, String locatorType) {
-		return driver.findElements(By.xpath(locatorType));
+		return driver.findElements(getByLocator(locatorType));
 	}
 
 	private String getDynamicXpath(String locatorType, String... dynamicValues) {
 		if (locatorType.startsWith("xpath=") || locatorType.startsWith("Xpath=") || locatorType.startsWith("XPATH=")) {
 			locatorType = String.format(locatorType, (Object[]) dynamicValues);
 		}
+		System.err.println(locatorType);
 		return locatorType;
 	}
 
@@ -241,13 +242,13 @@ public class BasePage {
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem) {
 		Select select = new Select(getWebElement(driver, locatorType));
-		select.selectByValue(textItem);
+		select.selectByVisibleText(textItem);
 	}
 
 	public void selectItemInDefaultDropdown(WebDriver driver, String locatorType, String textItem,
 			String... dynamicValues) {
 		Select select = new Select(getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)));
-		select.selectByValue(textItem);
+		select.selectByVisibleText(textItem);
 	}
 
 	public String getSelectedItemDefaultDropdown(WebDriver driver, String locatorType) {

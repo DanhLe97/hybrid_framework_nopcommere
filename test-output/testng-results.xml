@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-10-18T10:03:02Z" name="NopCommerce" finished-at="2023-10-18T10:03:34Z" duration-ms="31144">
+  <suite started-at="2023-10-22T18:10:53Z" name="NopCommerce" finished-at="2023-10-22T18:11:01Z" duration-ms="7889">
     <groups>
     </groups>
-    <test started-at="2023-10-18T10:03:02Z" name="Run on Firefox" finished-at="2023-10-18T10:03:34Z" duration-ms="31144">
+    <test started-at="2023-10-22T18:10:53Z" name="Run on Firefox" finished-at="2023-10-22T18:11:01Z" duration-ms="7889">
       <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
-        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:02Z" name="beforeClass" finished-at="2023-10-18T10:03:11Z" duration-ms="8517" status="PASS">
+        <test-method is-config="true" signature="beforeClass(java.lang.String, java.lang.String)[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@291b4bf5]" started-at="2023-10-22T18:10:53Z" name="beforeClass" finished-at="2023-10-22T18:10:59Z" duration-ms="5445" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -16,34 +16,22 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/]]>
+                <![CDATA[https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="Table_01()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:11Z" name="Table_01" finished-at="2023-10-18T10:03:15Z" duration-ms="3991" status="PASS">
+        <test-method signature="Table_04_Enter_To_Textbox_At_Any_Row()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@291b4bf5]" started-at="2023-10-22T18:10:59Z" name="Table_04_Enter_To_Textbox_At_Any_Row" finished-at="2023-10-22T18:11:01Z" duration-ms="2424" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Table_01 -->
-        <test-method signature="Table_02_Enter_To_Header()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:15Z" name="Table_02_Enter_To_Header" finished-at="2023-10-18T10:03:25Z" duration-ms="10348" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Table_02_Enter_To_Header -->
-        <test-method signature="Table_03()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:25Z" name="Table_03" finished-at="2023-10-18T10:03:32Z" duration-ms="6496" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Table_03 -->
-        <test-method signature="Table_04()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:32Z" name="Table_04" finished-at="2023-10-18T10:03:32Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Table_04 -->
-        <test-method signature="Table_05()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:32Z" name="Table_05" finished-at="2023-10-18T10:03:32Z" duration-ms="1" status="PASS">
+        </test-method> <!-- Table_04_Enter_To_Textbox_At_Any_Row -->
+        <test-method signature="Table_05()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@291b4bf5]" started-at="2023-10-22T18:11:01Z" name="Table_05" finished-at="2023-10-22T18:11:01Z" duration-ms="2" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Table_05 -->
-        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@2118cddf]" started-at="2023-10-18T10:03:32Z" name="afterClass" finished-at="2023-10-18T10:03:34Z" duration-ms="1771" status="PASS">
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:com.jquery.datatable.Level_10_DataTable_DataGrid@291b4bf5]" started-at="2023-10-22T18:11:01Z" name="afterClass" finished-at="2023-10-22T18:11:01Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterClass -->

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
-  <parameter name="url" value="https://www.jqueryscript.net/demo/CRUD-Data-Grid-Plugin-jQuery-Quickgrid/"/>
+  <parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>
   <test thread-count="5" name="Run on Firefox(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
       <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
         <methods>
-          <include name="Table_03"/>
+          <include name="Table_04_Enter_To_Textbox_At_Any_Row"/>
           <include name="afterClass"/>
           <include name="beforeClass"/>
         </methods>

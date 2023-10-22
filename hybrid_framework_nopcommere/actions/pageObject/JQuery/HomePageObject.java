@@ -47,17 +47,56 @@ public class HomePageObject extends BasePage {
 		for (int index = 1; index <= totalPage; index++) {
 			clickToElement(driver, HomePageUI.PAGINATION_BY_INDEX, String.valueOf(index));
 
-			//Get text của all row each page đưa vào array list
+			// Get text của all row each page đưa vào array list
 			List<WebElement> allRowElementEachPage = getListWebElements(driver, HomePageUI.ALL_ROW_COUNTRY_EACH_PAGE);
 			for (WebElement eachRow : allRowElementEachPage) {
 				allRowValueAllPage.add(eachRow.getText());
 			}
 		}
-			for (String value : allRowValueAllPage) {
+		for (String value : allRowValueAllPage) {
 //				System.out.println("----------------------------------");
-				System.out.println(value);
-			}
-		
-	return allRowValueAllPage;
+			System.out.println(value);
+		}
+
+		return allRowValueAllPage;
 	}
-}
+
+	public void enterToTextboxAtRowNumberByColumnName(String columnName, String rowNumber, String value) {
+		waitForElementVisible(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+//		// send key vào dòng
+		waitForElementClickable(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));
+		sendkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, value, rowNumber,
+				String.valueOf(columnIndex));
+		
+	}
+
+	public void selectDropdownByColumnNameAtRowNumber(String columnName, String rowNumber, String value) {
+		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));
+		selectItemInDefaultDropdown(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, value, rowNumber, String.valueOf(columnIndex));
+		
+	}
+	public void clickOnLoadBtn () {
+		waitForElementClickable(driver, HomePageUI.LOAD_BUTTON);
+		clickToElement(driver, HomePageUI.LOAD_BUTTON);
+	}
+
+	public void checkToCheckboxByColumnNameAtRowNumber(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	public void enterToTextboxAtRowNumberByColumnName(String columnName, String rowNumber, String value) {
+//		// get column index dựa vào tên cột
+//		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+//		// send key vào dòng
+//		waitForAllElementsVisible(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber,
+//				String.valueOf(columnIndex));
+//		sendkeyToElement(driver, HomePageUI.TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX, value, rowNumber,
+//				String.valueOf(columnIndex));
+
+	}

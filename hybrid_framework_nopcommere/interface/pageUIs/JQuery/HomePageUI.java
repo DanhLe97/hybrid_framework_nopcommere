@@ -9,5 +9,11 @@ public static final String PAGINATION_BY_INDEX = "xpath=//li[@class='qgrd-pagina
 public static final String ALL_ROW_EACH_PAGE = "//body//tr";
 public static final String ALL_ROW_COUNTRY_EACH_PAGE = "//tbody/tr/td[@data-key='country']";
 
+public static final String COLUMN_INDEX_BY_NAME = "xpath=//tr//th[text()='%s']/preceding-sibling::th";
+public static final String TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]/input";
+public static final String DYNAMIC_DROPDOWN_BY_COLUMN_AND_ROW_INDEX= "xpath=//tbody//tr[%s]//td[%s]//select";
+public static final String DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//select";
+public static final String LOAD_BUTTON = "xpath=//button[@id='load']";
+
 
 }
