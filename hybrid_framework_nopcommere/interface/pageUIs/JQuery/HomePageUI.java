@@ -14,6 +14,7 @@ public static final String TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbod
 public static final String DYNAMIC_DROPDOWN_BY_COLUMN_AND_ROW_INDEX= "xpath=//tbody//tr[%s]//td[%s]//select";
 public static final String DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//select";
 public static final String LOAD_BUTTON = "xpath=//button[@id='load']";
+public static final String CHECKBOX_BY_ROW_INDEX = "xpath=//tbody//tr[%s]//td[5]//label";
 
 
 }

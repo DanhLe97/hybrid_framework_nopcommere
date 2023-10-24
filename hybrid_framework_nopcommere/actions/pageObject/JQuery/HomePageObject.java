@@ -86,13 +86,9 @@ public class HomePageObject extends BasePage {
 	}
 
 	public void checkToCheckboxByColumnNameAtRowNumber(String string, String string2) {
-		// TODO Auto-generated method stub
-		
+		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, null);
 	}
-	public void checkToCheckboxByColumnNameAtRowNumber(String string, String string2) {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 //	public void enterToTextboxAtRowNumberByColumnName(String columnName, String rowNumber, String value) {
 //		// get column index dựa vào tên cột
