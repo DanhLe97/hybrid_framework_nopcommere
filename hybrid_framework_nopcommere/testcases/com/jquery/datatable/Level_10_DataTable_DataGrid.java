@@ -79,7 +79,14 @@ List<String> expectedAllCountryValues;
 		homePage.selectDropdownByColumnNameAtRowNumber("Country","7","Japan");
 		homePage.selectDropdownByColumnNameAtRowNumber("Country","8","Malaysia");
 		
-		homePage.checkToCheckboxByColumnNameAtRowNumber("columnName","rowNumber");
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","1");
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","2");
+		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","3");
+		
+		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","1");
+		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","2");
+		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","3");
+
 	}
 
 	public void Table_05() {

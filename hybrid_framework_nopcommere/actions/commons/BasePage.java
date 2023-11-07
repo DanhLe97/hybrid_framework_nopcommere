@@ -24,7 +24,11 @@ import pageObject.Nopcommerce.UserRewardPointsPageObject;
 import pageObject.NopcommerceAdmin.AdminLoginPageObject;
 import pageUIs.NopcommerceUser.BasePageUI;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 public class BasePage {
+	Alert alert;
 	public static BasePage getBasePageObject() {
 		return new BasePage();
 	}
@@ -34,6 +38,7 @@ public class BasePage {
 		clickToElement(driver, BasePageUI.ADDRESS_LINK);
 		return PageGeneratorManager.getUserAddressPage(driver);
 	}
+	
 	public UserRewardPointsPageObject openRewardPointsPage (WebDriver driver) {
 		waitForElementClickable(driver, BasePageUI.REWARDPOINT_LINK);
 		clickToElement(driver, BasePageUI.REWARDPOINT_LINK);

@@ -13,7 +13,12 @@ public class PageGeneratorManager {
 		return new LoginPageObject();
 	}
 	public static MyAccountPageObject getMyAccountPageObject (WebDriver driver) {
-		return new MyAccountPageObject();
+		return new MyAccountPageObject(driver);
 	}
-
+	public static AdminLoginPageObject getAdminLoginPage (WebDriver driver) {
+		return new AdminLoginPageObject(driver);
+	}
+	public static AdminCustomersPageObject getAdminCustomersPageObject (WebDriver driver) {
+		return new AdminCustomersPageObject(driver)	;
+	}
 }

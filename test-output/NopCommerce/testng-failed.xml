@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
-  <parameter name="url" value="https://www.jqueryscript.net/demo/jQuery-Dynamic-Data-Grid-Plugin-appendGrid/"/>
+  <parameter name="url" value="http://live.techpanda.org/index.php/"/>
   <test thread-count="5" name="Run on Firefox(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
+      <class name="liveGuru.LiveGuruTestCase">
         <methods>
-          <include name="Table_04_Enter_To_Textbox_At_Any_Row"/>
           <include name="afterClass"/>
+          <include name="Table_01"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.jquery.datatable.Level_10_DataTable_DataGrid -->
+      </class> <!-- liveGuru.LiveGuruTestCase -->
     </classes>
   </test> <!-- Run on Firefox(failed) -->
 </suite> <!-- Failed suite [NopCommerce] -->

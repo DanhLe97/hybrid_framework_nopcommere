@@ -5,17 +5,15 @@
   <parameter name="url" value="param-val-not-found"/>
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.jquery.datatable.Level_10_DataTable_DataGrid">
+      <class name="liveGuru.LiveGuruTestCase">
         <methods>
-          <include name="Table_01"/>
           <include name="Table_05"/>
-          <include name="Table_02_Enter_To_Header"/>
-          <include name="Table_04"/>
-          <include name="Table_03"/>
+          <include name="Table_04_Enter_To_Textbox_At_Any_Row"/>
           <include name="afterClass"/>
+          <include name="Table_01"/>
           <include name="beforeClass"/>
         </methods>
-      </class> <!-- com.jquery.datatable.Level_10_DataTable_DataGrid -->
+      </class> <!-- liveGuru.LiveGuruTestCase -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

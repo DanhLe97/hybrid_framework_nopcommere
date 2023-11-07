@@ -85,8 +85,22 @@ public class HomePageObject extends BasePage {
 		clickToElement(driver, HomePageUI.LOAD_BUTTON);
 	}
 
-	public void checkToCheckboxByColumnNameAtRowNumber(String string, String string2) {
-		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, null);
+	public void checkToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));
+		checkToDefaultChecboxRadio(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));
+	}
+
+	public void uncheckToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
+		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
+		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
+		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));
+		uncheckToDefaultCheckbox(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
+				String.valueOf(columnIndex));		
 	}
 
 
