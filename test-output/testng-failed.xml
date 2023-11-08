@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
-  <parameter name="url" value="http://live.techpanda.org/index.php/"/>
+  <parameter name="url" value="http://saferailway.somee.com/Page/HomePage.cshtml"/>
   <test thread-count="5" name="Run on Firefox(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="liveGuru.LiveGuruTestCase">
+      <class name="com.somee.railway.CreateAccount">
         <methods>
-          <include name="afterClass"/>
-          <include name="Table_01"/>
+          <include name="TC_08_User_Cant_Create_Account_With_Empty_PID_And_Password"/>
           <include name="beforeClass"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- liveGuru.LiveGuruTestCase -->
+      </class> <!-- com.somee.railway.CreateAccount -->
     </classes>
   </test> <!-- Run on Firefox(failed) -->
 </suite> <!-- Failed suite [NopCommerce] -->
