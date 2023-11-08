@@ -72,38 +72,6 @@ public class HomePageObject extends BasePage {
 		
 	}
 
-	public void selectDropdownByColumnNameAtRowNumber(String columnName, String rowNumber, String value) {
-		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
-		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
-		waitForElementClickable(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, rowNumber,
-				String.valueOf(columnIndex));
-		selectItemInDefaultDropdown(driver, HomePageUI.DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX, value, rowNumber, String.valueOf(columnIndex));
-		
-	}
-	public void clickOnLoadBtn () {
-		waitForElementClickable(driver, HomePageUI.LOAD_BUTTON);
-		clickToElement(driver, HomePageUI.LOAD_BUTTON);
-	}
-
-	public void checkToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
-		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
-		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
-		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
-				String.valueOf(columnIndex));
-		checkToDefaultChecboxRadio(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
-				String.valueOf(columnIndex));
-	}
-
-	public void uncheckToCheckboxByColumnNameAtRowNumber(String columnName, String rowNumber) {
-		waitForElementClickable(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName);
-		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
-		waitForElementClickable(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
-				String.valueOf(columnIndex));
-		uncheckToDefaultCheckbox(driver, HomePageUI.CHECKBOX_BY_ROW_INDEX, rowNumber,
-				String.valueOf(columnIndex));		
-	}
-
-
 //	public void enterToTextboxAtRowNumberByColumnName(String columnName, String rowNumber, String value) {
 //		// get column index dựa vào tên cột
 //		int columnIndex = getElementSize(driver, HomePageUI.COLUMN_INDEX_BY_NAME, columnName) + 1;
@@ -114,3 +82,4 @@ public class HomePageObject extends BasePage {
 //				String.valueOf(columnIndex));
 
 	}
+

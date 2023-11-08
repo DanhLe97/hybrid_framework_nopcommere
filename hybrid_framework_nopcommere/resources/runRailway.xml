@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="NopCommerce">
+	<parameter name="url" value="http://saferailway.somee.com/Page/HomePage.cshtml" />
+	<test name="Run on Firefox">
+		<parameter name="browser" value="firefox" />
+		<classes>
+			<class name="com.somee.railway.CreateAccount" />
+		</classes>
+	</test>
+</suite>

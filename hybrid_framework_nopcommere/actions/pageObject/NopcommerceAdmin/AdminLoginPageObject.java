@@ -8,7 +8,7 @@ import pageUIs.NopcommerceAdmin.AdminLoginPageUI;
 import pageUIs.NopcommerceUser.LoginPageUI;
 
 public class AdminLoginPageObject extends BasePage {
-	public WebDriver driver;
+	private WebDriver driver;
 
 	public AdminLoginPageObject(WebDriver driver) {
 		this.driver = driver;

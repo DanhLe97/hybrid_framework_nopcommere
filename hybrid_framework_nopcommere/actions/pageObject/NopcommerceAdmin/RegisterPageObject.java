@@ -1,4 +1,4 @@
-package pageObject.Nopcommerce;
+package pageObject.NopcommerceAdmin;
 
 import org.openqa.selenium.WebDriver;
 
@@ -127,12 +127,12 @@ public class RegisterPageObject extends BasePage{
 	}
 
 
-
-	public UserHomePageObject clickToLogOutButton() {
-		waitForElementClickable(driver, RegisterPageUI.LOGOUT_BUTTON);
-		clickToElement(driver, RegisterPageUI.LOGOUT_BUTTON);
-		return PageGeneratorManager.getHomePage(driver);
-	}
+//
+//	public UserHomePageObject clickToLogOutButton() {
+//		waitForElementClickable(driver, RegisterPageUI.LOGOUT_BUTTON);
+//		clickToElement(driver, RegisterPageUI.LOGOUT_BUTTON);
+//		return PageGeneratorManager.getHomePage(driver);
+//	}
 
 
 

@@ -6,8 +6,11 @@ import static org.testng.Assert.assertTrue;
 import java.util.List;
 import java.util.Random;
 
+
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
+
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,6 +20,9 @@ import pageObject.JQuery.HomePageObject;
 public class Level_10_DataTable_DataGrid extends BaseTest {
 HomePageObject homePage;
 List<String> actualAllCountryValues;
+
+
+
 List<String> expectedAllCountryValues;
 
 	@org.testng.annotations.Parameters({"browser","url"})
@@ -69,24 +75,9 @@ List<String> expectedAllCountryValues;
 //	}
 	@Test
 	public void Table_04_Enter_To_Textbox_At_Any_Row() {
-		homePage.clickOnLoadBtn();
 		homePage.enterToTextboxAtRowNumberByColumnName("Company","1","Kiehn DeckHow");
 		homePage.enterToTextboxAtRowNumberByColumnName("Contact Person","1","HistoName");
 		homePage.enterToTextboxAtRowNumberByColumnName("Order Placed","1","123");
-		homePage.selectDropdownByColumnNameAtRowNumber("Country","1","Germany");
-		homePage.selectDropdownByColumnNameAtRowNumber("Country","3","Japan");
-		homePage.selectDropdownByColumnNameAtRowNumber("Country","5","Taiwan");
-		homePage.selectDropdownByColumnNameAtRowNumber("Country","7","Japan");
-		homePage.selectDropdownByColumnNameAtRowNumber("Country","8","Malaysia");
-		
-		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","1");
-		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","2");
-		homePage.checkToCheckboxByColumnNameAtRowNumber("NPO?","3");
-		
-		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","1");
-		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","2");
-		homePage.uncheckToCheckboxByColumnNameAtRowNumber("NPO?","3");
-
 	}
 
 	public void Table_05() {

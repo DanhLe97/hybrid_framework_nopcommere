@@ -11,10 +11,5 @@ public static final String ALL_ROW_COUNTRY_EACH_PAGE = "//tbody/tr/td[@data-key=
 
 public static final String COLUMN_INDEX_BY_NAME = "xpath=//tr//th[text()='%s']/preceding-sibling::th";
 public static final String TEXTBOX_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]/input";
-public static final String DYNAMIC_DROPDOWN_BY_COLUMN_AND_ROW_INDEX= "xpath=//tbody//tr[%s]//td[%s]//select";
-public static final String DROPDOWN_BY_COLUMN_INDEX_AND_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//select";
-public static final String LOAD_BUTTON = "xpath=//button[@id='load']";
-public static final String CHECKBOX_BY_ROW_INDEX = "xpath=//tbody//tr[%s]//td[%s]//label";
-
-
+public static final String DYNAMIC_DROPDOWN_BY_COLUMN_AND_ROW_INDEX= "//tbody//tr[%s]//td[%s]//select";
 }

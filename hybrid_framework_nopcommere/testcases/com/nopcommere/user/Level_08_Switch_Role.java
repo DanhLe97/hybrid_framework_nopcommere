@@ -21,8 +21,8 @@ public class Level_08_Switch_Role extends BaseTest {
 
 	@org.testng.annotations.Parameters("browser")
 	@BeforeClass
-	public void beforeClass(String browserName) {
-		driver = getBrowserDriver("chrome");
+	public void beforeClass(String browserName, String appUrl) {
+		driver = getBrowserDriver(browserName,appUrl);
 		userHomePage = PageGeneratorManager.getUserHomePage(driver);
 //			basePage = BasePage.getBasePageObject();
 		firstName = "w_firstName";
