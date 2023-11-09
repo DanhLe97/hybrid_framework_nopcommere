@@ -14,7 +14,7 @@ public class EmailPageObject extends BasePage {
 		this.driver = driver;
 	}
 
-	public void verifyRegistedAccount(String emailName, String emailDomain) {
+	public RegisterPageObject verifyRegistedAccount(String emailName, String emailDomain) {
 		waitForElementClickable(driver, EmailPageUI.CLICK_TO_EDIT_LABEL);
 		selectItemInDefaultDropdown(driver, EmailPageUI.EMAIL_DOMAIN_DROPDOWN, emailDomain);
 		clickToElement(driver, EmailPageUI.CLICK_TO_EDIT_LABEL);
@@ -23,9 +23,11 @@ public class EmailPageObject extends BasePage {
 		sleepInSecond(10);
 		clickToElement(driver, EmailPageUI.RECIEVED_EMAIL);
 		clickToElement(driver, EmailPageUI.ACTIVATE_LINK);
-		    ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
-		    driver.switchTo().window(tabs.get(0));
-		    driver.close();
+		return PageGeneratorManager.getRegisterPage(driver);
+//		    ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+//		    driver.switchTo().window(tabs.get(0));
+//		    driver.close();
+		    
 	}
 
 }

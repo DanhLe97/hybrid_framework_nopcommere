@@ -21,4 +21,7 @@ public static TimetablePageObject getTimetablePage (WebDriver driver) {
 public static EmailPageObject getEmailPage (WebDriver driver) {
 	return new EmailPageObject(driver);
 }
+public static TicketPricePageObject getTicketpricePage (WebDriver driver) {
+	return new TicketPricePageObject(driver);
+}
 }

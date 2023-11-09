@@ -40,19 +40,19 @@ public class Level_09_Dynamic_Locator extends BaseTest {
 
 	}
 
-//	public void TC_01_User_To_Admin() {
-//		userLoginPage = userHomePage.clickToLoginLink();
-//		userLoginPage.loginAsUser(userEmail, userPassword);
-//		Assert.assertTrue(userHomePage.isMyAccountLinkIsDisplayed());
-//		userHomePage.logoutUserPage(driver);
-//		
-//		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
-//		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
-//		adminDashBoardPage = adminLoginPage.login(adminEmail, adminPassword);
-//		assertTrue(adminDashBoardPage.isDashBoardPageDisplayed());
-//		adminDashBoardPage.logoutAdminPage(driver);
-//		
-//	}
+	public void TC_01_User_To_Admin() {
+		userLoginPage = userHomePage.clickToLoginLink();
+		userLoginPage.loginAsUser(userEmail, userPassword);
+		Assert.assertTrue(userHomePage.isMyAccountLinkIsDisplayed());
+		userHomePage.logoutUserPage(driver);
+		
+		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);
+		adminLoginPage = PageGeneratorManager.getAdminLoginPage(driver);
+		adminDashBoardPage = adminLoginPage.login(adminEmail, adminPassword);
+		assertTrue(adminDashBoardPage.isDashBoardPageDisplayed());
+		adminDashBoardPage.logoutAdminPage(driver);
+		
+	}
 
 	public void TC_02_Admin_To_User() {
 //		userHomePage.openPageUrl(driver, GlobalConstants.ADMIN_PAGE_URL);

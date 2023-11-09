@@ -3,6 +3,7 @@ package commons;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -75,6 +76,13 @@ public class BaseTest {
 		String after = timeStamp.replace(".", "");
 		return after = timeStamp.replace(".", "");
 
+	}
+	public void switchToLatestTab () {
+		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(tabs.get(tabs.size()-1));
+	}
+	public void closeTab() {
+		driver.close();	
 	}
 	
 }

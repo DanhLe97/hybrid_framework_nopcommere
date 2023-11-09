@@ -13,11 +13,23 @@ public class HomePageObject extends BasePage {
 		this.driver = driver;
 	}
 
-	public RegisterPageObject clickToMenuItem(String itemName) {
+	public Object clickToMenuItem(String itemName) {
 		waitForElementClickable(driver, BasePageUI.MENU_ITEM_BY_NAME, itemName);
 		clickToElement(driver, BasePageUI.MENU_ITEM_BY_NAME, itemName);
-		return PageGeneratorManager.getRegisterPage(driver);
+		switch (itemName) {
+		case "Home":
+
+			return PageGeneratorManager.getHomePage(driver);
+		case "Register":
+			return PageGeneratorManager.getRegisterPage(driver);
+		case "Book ticket":
+			return PageGeneratorManager.getBookTicketPage(driver);
+		case "Timetable":
+			return PageGeneratorManager.getTimetablePage(driver);
+		case "Ticketprice":
+			return PageGeneratorManager.getTicketpricePage(driver);
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + itemName);
+		}
 	}
-
-
 }
