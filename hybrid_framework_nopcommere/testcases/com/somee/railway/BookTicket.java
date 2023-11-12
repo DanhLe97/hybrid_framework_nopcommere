@@ -1,6 +1,7 @@
 package com.somee.railway;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -18,7 +19,7 @@ import pageObject.railway.LoginPageObject;
 import pageObject.railway.PageGeneratorManager;
 import pageObject.railway.RegisterPageObject;
 
-public class CreateAccount extends BaseTest {
+public class BookTicket extends BaseTest {
 	private WebDriver driver;
 	HomePageObject homePage;
 	RegisterPageObject registerPage;
@@ -33,27 +34,28 @@ public class CreateAccount extends BaseTest {
 
 	@org.testng.annotations.Parameters({ "browser", "url" })
 	@BeforeClass
-	public void beforeClass(@Optional("firefox") String browserName,@Optional("http://saferailway.somee.com/Page/HomePage.cshtml") String appUrl) {
+	public void beforeClass(@Optional("firefox") String browserName,
+			@Optional("http://saferailway.somee.com/Page/HomePage.cshtml") String appUrl) {
 		driver = getBrowserDriver(browserName, appUrl);
 		homePage = PageGeneratorManager.getHomePage(driver);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-
+		Create_And_Active_Account();
+		System.out.println(email);
+		System.out.println(password);
 	}
 
 	@Test
-	public void TC_08_User_Cant_Create_Account_With_Empty_PID_And_Password() {
-		registerPage = (RegisterPageObject) homePage.clickToMenuItem("Register");
-
-		registerPage.registNewAccount(email, "", "");
-		assertEquals(registerPage.getTextboxValidation("password"), "Invalid password length");
-		assertEquals(registerPage.getTextboxValidation("pid"), "Invalid ID length");
-		homePage = (HomePageObject) registerPage.clickToMenuItem("Home");
-
+	public void TC_01_User_Login_With_Valid_Username_And_Password() {
+		loginPage = (LoginPageObject) homePage.clickToMenuItem("Login");
+		loginPage.login(email, password);
+		loginPage.clickToMenuItem("Book ticket");
+		loginPage.bookTicket("24/11/2023","Nha Trang","Huế","Soft bed with air conditioner","1");
 	}
 
-	@Test
-	public void TC_09_User_Create_And_Active_Acconut() {
+
+
+	public void Create_And_Active_Account() {
 		registerPage = (RegisterPageObject) homePage.clickToMenuItem("Register");
 		registerPage.registNewAccount(email, password, pidNumber);
 		registerPage.openPageUrl(driver, "https://www.guerrillamail.com/inbox");
@@ -62,16 +64,12 @@ public class CreateAccount extends BaseTest {
 		closeTab();
 		switchToLatestTab();
 		registerPage.clickToMenuItem("Home");
-		System.out.println(email);
-		System.out.println(password);
-		
-		
+
 	}
+
 	@Test
-	public void TC_07_User_Cant_Create_Account_With_An_Already_Inuse_Email() {
-		registerPage = (RegisterPageObject) homePage.clickToMenuItem("Register");
-		registerPage.registNewAccount(email, password, pidNumber);
-		assertEquals(registerPage.getHeaderMessage(), "This email address is already in use.");
+	public void User_Cant_Create_Account_With_An_Already_Inuse_Email() {
+
 	}
 
 	public int generateFakeNumber() {

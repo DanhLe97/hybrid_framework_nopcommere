@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.somee.railway.CreateAccount">
+      <class name="com.somee.railway.Login">
         <methods>
+          <include name="TC_01_User_Login_With_Valid_Username_And_Password"/>
           <include name="beforeClass"/>
-          <include name="TC_09_User_Create_And_Active_Acconut"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- com.somee.railway.CreateAccount -->
+      </class> <!-- com.somee.railway.Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

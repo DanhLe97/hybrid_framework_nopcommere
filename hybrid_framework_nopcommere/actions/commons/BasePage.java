@@ -369,6 +369,9 @@ public class BasePage {
 	public boolean isElementSelected(WebDriver driver, String locatorType) {
 		return getWebElement(driver, locatorType).isSelected();
 	}
+	public boolean isElementSelected(WebDriver driver, String locatorType, String...dynamicValues) {
+		return getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).isSelected();
+	}
 
 //	private By getByLocator(String locatorType) {
 //		return By.locator(locatorType);

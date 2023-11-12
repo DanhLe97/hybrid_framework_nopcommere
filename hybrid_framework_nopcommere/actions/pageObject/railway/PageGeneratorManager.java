@@ -24,4 +24,7 @@ public static EmailPageObject getEmailPage (WebDriver driver) {
 public static TicketPricePageObject getTicketpricePage (WebDriver driver) {
 	return new TicketPricePageObject(driver);
 }
+public static FAQPageObject getFAQPage (WebDriver driver) {
+	return new FAQPageObject(driver);
+}
 }
