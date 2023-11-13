@@ -1,5 +1,10 @@
 package commons;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -23,10 +28,6 @@ import pageObject.Nopcommerce.UserMyProductReviewPageObject;
 import pageObject.Nopcommerce.UserRewardPointsPageObject;
 import pageObject.NopcommerceAdmin.AdminLoginPageObject;
 import pageUIs.NopcommerceUser.BasePageUI;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 public class BasePage {
 	Alert alert;
 	public static BasePage getBasePageObject() {
@@ -379,7 +380,18 @@ public class BasePage {
 	public String getElementAttribute(WebDriver driver, String locatorType, String attributeName) {
 		return getWebElement(driver, locatorType).getAttribute(attributeName);
 	}
-
+	public String getCurrentDate() {
+	   String myDateObj = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+	   return myDateObj = LocalDateTime.now().format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+	}
+	public String plusDateFormCurrentDate(int addDate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date()); // Using today's date
+		c.add(Calendar.DATE, addDate); // Adding 5 days
+		String output = sdf.format(c.getTime());
+		return output = sdf.format(c.getTime());
+	}
 	public String getElementAttribute(WebDriver driver, String locatorType, String attributeName,
 			String... dynamicValues) {
 		return getWebElement(driver, getDynamicXpath(locatorType, dynamicValues)).getAttribute(attributeName);

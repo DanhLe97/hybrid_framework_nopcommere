@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -75,11 +77,18 @@ public class BaseTest {
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new java.util.Date());
 		String after = timeStamp.replace(".", "");
 		return after = timeStamp.replace(".", "");
-
 	}
 	public void switchToLatestTab () {
 		ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(tabs.get(tabs.size()-1));
+	}
+	public String plusDateFormCurrentDate(int addDate) {
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		Calendar c = Calendar.getInstance();
+		c.setTime(new Date()); // Using today's date
+		c.add(Calendar.DATE, addDate); // Adding 5 days
+		String output = sdf.format(c.getTime());
+		return output = sdf.format(c.getTime());
 	}
 	public void closeTab() {
 		driver.close();	

@@ -1,8 +1,5 @@
 package com.somee.railway;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -13,6 +10,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Test;
 
 import commons.BaseTest;
+import pageObject.railway.BookTicketPageObject;
 import pageObject.railway.EmailPageObject;
 import pageObject.railway.HomePageObject;
 import pageObject.railway.LoginPageObject;
@@ -25,12 +23,14 @@ public class BookTicket extends BaseTest {
 	RegisterPageObject registerPage;
 	LoginPageObject loginPage;
 	EmailPageObject emailPage;
+	BookTicketPageObject bookTicketPage;
 
 	private String emailName = getDateTimeRandom();
 	private String emailDomain = "pokemail.net";
 	private String password = getDateTimeRandom();
 	private String pidNumber = "123456789";
 	private String email = emailName + "@" + emailDomain;
+	private String departDate = plusDateFormCurrentDate(15);
 
 	@org.testng.annotations.Parameters({ "browser", "url" })
 	@BeforeClass
@@ -43,18 +43,17 @@ public class BookTicket extends BaseTest {
 		Create_And_Active_Account();
 		System.out.println(email);
 		System.out.println(password);
+
 	}
 
 	@Test
 	public void TC_01_User_Login_With_Valid_Username_And_Password() {
 		loginPage = (LoginPageObject) homePage.clickToMenuItem("Login");
 		loginPage.login(email, password);
-		loginPage.clickToMenuItem("Book ticket");
-		loginPage.bookTicket("24/11/2023","Nha Trang","Huế","Soft bed with air conditioner","1");
+		bookTicketPage= (BookTicketPageObject) homePage.clickToMenuItem("Book ticket");
+		bookTicketPage.bookTicket(departDate, "Nha Trang","Huế","Soft bed with air conditioner",
+				"1");
 	}
-
-
-
 	public void Create_And_Active_Account() {
 		registerPage = (RegisterPageObject) homePage.clickToMenuItem("Register");
 		registerPage.registNewAccount(email, password, pidNumber);
@@ -64,11 +63,6 @@ public class BookTicket extends BaseTest {
 		closeTab();
 		switchToLatestTab();
 		registerPage.clickToMenuItem("Home");
-
-	}
-
-	@Test
-	public void User_Cant_Create_Account_With_An_Already_Inuse_Email() {
 
 	}
 

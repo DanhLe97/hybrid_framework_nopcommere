@@ -107,18 +107,5 @@ public class LoginPageObject extends BasePage {
 		}
 	}
 
-	public void bookTicket(String departDate, String departStation, String arriveStation, String seatType, String ticketAmount) {
-		scrollToElement(driver, BookTicketPageUI.DROPDOWN_BY_NAME, "Date");
-		selectItemInDefaultDropdown(driver, BookTicketPageUI.DROPDOWN_BY_NAME, ticketAmount, "Date");
-		scrollToElement(driver, BookTicketPageUI.DROPDOWN_BY_NAME, "DepartStation");
-		selectItemInDefaultDropdown(driver, BookTicketPageUI.DROPDOWN_BY_NAME, ticketAmount, "DepartStation");
-		scrollToElement(driver, BookTicketPageUI.DROPDOWN_BY_NAME, "ArriveStation");
-		selectItemInDefaultDropdown(driver, BookTicketPageUI.DROPDOWN_BY_NAME, ticketAmount, "ArriveStation");
-		scrollToElement(driver, BookTicketPageUI.DROPDOWN_BY_NAME, "SeatType");
-		selectItemInDefaultDropdown(driver, BookTicketPageUI.DROPDOWN_BY_NAME, ticketAmount, "SeatType");
-		scrollToElement(driver, BookTicketPageUI.DROPDOWN_BY_NAME, "TicketAmount");
-		selectItemInDefaultDropdown(driver, BookTicketPageUI.DROPDOWN_BY_NAME, ticketAmount, "TicketAmount");
-		scrollToElement(driver, BookTicketPageUI.BUTTON_BOOKTICKET);
-		clickToElement(driver, BookTicketPageUI.BUTTON_BOOKTICKET);
-	}
+	
 	}
