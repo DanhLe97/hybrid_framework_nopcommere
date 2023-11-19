@@ -11,4 +11,9 @@ public class TimetablePageObject extends BasePage {
 		this.driver = driver;
 	}
 
+	public void checkPriceOfARoutine(String string, String string2) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

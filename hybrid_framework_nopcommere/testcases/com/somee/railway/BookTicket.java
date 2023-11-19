@@ -86,6 +86,7 @@ public class BookTicket extends BaseTest {
 	@Test
 	public void TC_13_User_Can_Check_Price_Of_Ticket_From_Timetable() {
 		timeTablePage = (TimetablePageObject) bookTicketPage.clickToMenuItem("Timetable");
+		timeTablePage.checkPriceOfARoutine("Đà Nẵng","Sài Gòn");
 	 
 	}
 
