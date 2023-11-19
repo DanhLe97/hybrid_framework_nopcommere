@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [NopCommerce]" guice-stage="DEVELOPMENT">
+  <parameter name="url" value="http://saferailway.somee.com/Page/HomePage.cshtml"/>
+  <test thread-count="5" name="Run on Firefox(failed)">
+    <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.somee.railway.Login">
+      <class name="com.somee.railway.BookTicket">
         <methods>
-          <include name="TC_01_User_Login_With_Valid_Username_And_Password"/>
           <include name="beforeClass"/>
+          <include name="TC_01_User_Login_With_Valid_Username_And_Password"/>
           <include name="afterClass"/>
         </methods>
-      </class> <!-- com.somee.railway.Login -->
+      </class> <!-- com.somee.railway.BookTicket -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Run on Firefox(failed) -->
+</suite> <!-- Failed suite [NopCommerce] -->

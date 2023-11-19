@@ -5,13 +5,13 @@
   <test thread-count="5" name="Run on Firefox(failed)">
     <parameter name="browser" value="firefox"/>
     <classes>
-      <class name="com.somee.railway.ResetPassword">
+      <class name="com.somee.railway.BookTicket">
         <methods>
-          <include name="afterClass"/>
-          <include name="TC_10_Reset_Password_Shows_Error_If_New_Password_Same_As_Current"/>
           <include name="beforeClass"/>
+          <include name="TC_01_User_Login_With_Valid_Username_And_Password"/>
+          <include name="afterClass"/>
         </methods>
-      </class> <!-- com.somee.railway.ResetPassword -->
+      </class> <!-- com.somee.railway.BookTicket -->
     </classes>
   </test> <!-- Run on Firefox(failed) -->
 </suite> <!-- Failed suite [NopCommerce] -->

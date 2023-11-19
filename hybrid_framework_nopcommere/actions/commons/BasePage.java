@@ -285,7 +285,14 @@ public class BasePage {
 			e.printStackTrace();
 		}
 	}
-
+	 public static int findIndex(String[] array, String element) {
+	        for (int i = 0; i < array.length; i++) {
+	            if (array[i].equals(element)) {
+	                return i; 
+	            }
+	        }
+	        return -1;
+	    }
 	public void selectItemInCustomDropdown(WebDriver driver, String parentXpath, String childXpath,
 			String expectedTextItem) {
 		getWebElement(driver, parentXpath).click();

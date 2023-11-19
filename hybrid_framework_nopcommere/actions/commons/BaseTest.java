@@ -83,7 +83,7 @@ public class BaseTest {
 		driver.switchTo().window(tabs.get(tabs.size()-1));
 	}
 	public String plusDateFormCurrentDate(int addDate) {
-		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("M/d/yyyy");
 		Calendar c = Calendar.getInstance();
 		c.setTime(new Date()); // Using today's date
 		c.add(Calendar.DATE, addDate); // Adding 5 days
